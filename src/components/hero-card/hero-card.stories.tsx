@@ -13,6 +13,7 @@ const meta = {
     icon: 'briefcase',
     title: 'Banca e Infraestructura',
     description: 'Creamos infraestructura financiera digital preparada para operar, escalar y proteger cada etapa del negocio.',
+    imageSrc: '/image1.png',
   },
 } satisfies Meta<typeof HeroCard>
 

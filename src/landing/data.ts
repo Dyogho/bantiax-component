@@ -9,6 +9,7 @@ export type IconCard = {
   title: string
   desc: string
   icon: IconName
+  imageSrc?: string
 }
 
 export const heroCards: IconCard[] = [
@@ -16,16 +17,19 @@ export const heroCards: IconCard[] = [
     title: 'Banca e Infraestructura',
     desc: 'Creamos infraestructura financiera digital preparada para operar, escalar y proteger cada etapa del negocio.',
     icon: 'briefcase',
+    imageSrc: '/image1.png',
   },
   {
     title: 'Soluciones Automatizadas',
     desc: 'Automatizamos evaluación, monitoreo, cobranza y operación con tecnología propia y flujos inteligentes.',
     icon: 'cpu',
+    imageSrc: '/image2.png',
   },
   {
     title: 'Consultoría Estratégica',
     desc: 'Acompañamos el diseño, lanzamiento y optimización de modelos Fintech con foco en rentabilidad.',
     icon: 'trending-up',
+    imageSrc: '/image3.png',
   },
 ]
 

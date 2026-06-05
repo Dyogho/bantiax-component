@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.primary {
+  color: #000;
+  background-color: var(--brand-cyan);
+}
+
+.primary:hover {
+  background-color: var(--brand-green);
+}
+
+.secondary {
+  border: 1px solid var(--brand-cyan);
+  color: var(--brand-cyan);
+  background-color: transparent;
+}
+
+.secondary:hover {
+  color: #000;
+  background-color: var(--brand-cyan);
+}

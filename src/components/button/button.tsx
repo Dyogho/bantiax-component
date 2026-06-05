@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react'
 import Icon, { type IconName } from '@/components/icon/icon'
+import styles from './button.module.css'
 
 type ButtonColor = 'primary' | 'secondary'
 
@@ -10,7 +11,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 function Button({ text, color = 'primary', icon, className = '', type = 'button', ...props }: ButtonProps) {
-  const classes = ['btx-button', `btx-button--${color}`, className].filter(Boolean).join(' ')
+  const classes = [styles.button, styles[color], className].filter(Boolean).join(' ')
 
   return (
     <button className={classes} type={type} {...props}>

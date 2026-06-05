@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+import styles from './card.module.css'
 
 type CardVariant = 'transparent' | 'full' | 'border' | 'secondary'
 
@@ -17,7 +18,7 @@ function Card<TElement extends ElementType = 'article'>({
   ...props
 }: CardProps<TElement>) {
   const Component = as ?? 'article'
-  const classes = ['btx-card', `btx-card--${variant}`, className].filter(Boolean).join(' ')
+  const classes = [styles.card, styles[variant], className].filter(Boolean).join(' ')
 
   return (
     <Component className={classes} {...props}>

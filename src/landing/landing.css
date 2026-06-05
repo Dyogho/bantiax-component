@@ -165,7 +165,7 @@
 .hero {
   position: relative;
   display: flex;
-  min-height: 70vh;
+  min-height: 100svh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -245,29 +245,119 @@
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: start;
   gap: 1.5rem;
   max-width: 48rem;
   margin: 2rem auto 0;
 }
 
 .hero-badge-card {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  background-color: rgba(30, 41, 59, 0.72);
+  width: 100%;
+  height: 16rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 0;
+  background-clip: padding-box;
+  color: inherit;
   text-align: left;
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease, backdrop-filter 0.16s ease, border-radius 0.16s ease;
+}
+
+.hero-badge-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px) saturate(1.35);
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+  transition: opacity 0.16s ease;
+}
+
+.hero-badge-card:hover,
+.hero-badge-card:focus-visible,
+.hero-badge-card.is-active {
+  transform: translateY(-1rem);
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 14px 46px rgba(0, 0, 0, 0.46);
+}
+
+.hero-badge-card:hover::before,
+.hero-badge-card:focus-visible::before,
+.hero-badge-card.is-active::before {
+  opacity: 1;
+}
+
+.hero-card-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.hero-card-line {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 1px;
+  background: var(--brand-cyan);
 }
 
 .hero-badge-text {
-  font-size: 0.875rem;
-  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  color: var(--brand-cyan);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: color 0.16s ease;
+}
+
+.hero-badge-card:hover .hero-badge-text,
+.hero-badge-card:focus-visible .hero-badge-text,
+.hero-badge-card.is-active .hero-badge-text {
+  color: var(--text-main);
+}
+
+.hero-card-desc {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  transform: translateY(0.5rem);
+  transition: max-height 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+}
+
+.hero-badge-card:hover .hero-card-desc,
+.hero-badge-card:focus-visible .hero-card-desc,
+.hero-badge-card.is-active .hero-card-desc {
+  max-height: 7rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-icon-wrap {
+  display: inline-flex;
+  color: var(--brand-cyan);
 }
 
 .hero-icon,
 .benefit-icon {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
 }
 
@@ -319,6 +409,54 @@
   margin: 0.25rem 0 0;
   color: var(--text-dark);
   font-size: 0.75rem;
+}
+
+.bx-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  text-align: left;
+}
+
+.bx-stat-icon {
+  flex-shrink: 0;
+  color: var(--brand-cyan);
+}
+
+.bx-stat .num {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.bx-stat .label {
+  margin: 0.35rem 0 0;
+  color: var(--text-dark);
+  font-size: 0.75rem;
+}
+
+.bx-marquee-item {
+  flex: 0 0 auto;
+}
+
+.bx-partner-logo {
+  display: flex;
+  min-width: 10rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+}
+
+.bx-partner-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 2.25rem;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.72;
 }
 
 .logos-marquee {

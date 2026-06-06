@@ -13,16 +13,19 @@ const INFO_CARD_ORIENTATION = {
   VERTICAL: 'vertical',
 } as const
 
-const INFO_CARD_STATUS = {
+const INFO_CARD_COLOR = {
   DEFAULT: 'default',
-  SUCCESS: 'success',
-  DANGER: 'danger',
-  WARNING: 'warning',
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  MAIN: 'main',
+  MUTED: 'muted',
+  DARK: 'dark',
+  BLACK: 'black',
 } as const
 
 type InfoCardSize = (typeof INFO_CARD_SIZE)[keyof typeof INFO_CARD_SIZE]
 type InfoCardOrientation = (typeof INFO_CARD_ORIENTATION)[keyof typeof INFO_CARD_ORIENTATION]
-type InfoCardStatus = (typeof INFO_CARD_STATUS)[keyof typeof INFO_CARD_STATUS]
+type InfoCardColor = (typeof INFO_CARD_COLOR)[keyof typeof INFO_CARD_COLOR]
 
 type InfoCardProps = {
   title: string
@@ -30,7 +33,9 @@ type InfoCardProps = {
   icon?: IconName
   size?: InfoCardSize
   orientation?: InfoCardOrientation
-  status?: InfoCardStatus
+  iconColor?: InfoCardColor
+  titleColor?: InfoCardColor
+  descriptionColor?: InfoCardColor
   className?: string
 }
 
@@ -40,10 +45,22 @@ function InfoCard({
   description,
   size = INFO_CARD_SIZE.MEDIUM,
   orientation = INFO_CARD_ORIENTATION.HORIZONTAL,
-  status = INFO_CARD_STATUS.DEFAULT,
+  iconColor = INFO_CARD_COLOR.DEFAULT,
+  titleColor = INFO_CARD_COLOR.DEFAULT,
+  descriptionColor = INFO_CARD_COLOR.DEFAULT,
   className = '',
 }: InfoCardProps) {
-  const classes = [styles.infoCard, styles[orientation], styles[size], styles[status], className].filter(Boolean).join(' ')
+  const classes = [
+    styles.infoCard,
+    styles[orientation],
+    styles[size],
+    styles[`icon-${iconColor}`],
+    styles[`title-${titleColor}`],
+    styles[`description-${descriptionColor}`],
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <div className={classes}>
@@ -61,5 +78,5 @@ function InfoCard({
 }
 
 export default InfoCard
-export { INFO_CARD_ORIENTATION, INFO_CARD_SIZE, INFO_CARD_STATUS }
-export type { InfoCardOrientation, InfoCardProps, InfoCardSize, InfoCardStatus }
+export { INFO_CARD_COLOR, INFO_CARD_ORIENTATION, INFO_CARD_SIZE }
+export type { InfoCardColor, InfoCardOrientation, InfoCardProps, InfoCardSize }

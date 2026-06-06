@@ -1,0 +1,41 @@
+.selector {
+  --selector-bg: transparent;
+  --selector-text: var(--text-main);
+  --selector-border: var(--text-muted);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--selector-border);
+  border-radius: 9999px;
+  color: var(--selector-text);
+  background: var(--selector-bg);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.small {
+  min-height: calc(var(--layout-size-small) * 3);
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+}
+
+.medium {
+  min-height: calc(var(--layout-size-medium) * 2.75);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.large {
+  min-height: calc(var(--layout-size-large) * 2.25);
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+}
+
+.active {
+  --selector-bg: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --selector-text: var(--color-primary);
+  --selector-border: var(--color-primary);
+}

@@ -20,6 +20,7 @@ export type IconName =
   | 'zap'
   | 'bar-chart'
   | 'lock'
+  | 'loading'
 
 type IconProps = {
   name: IconName
@@ -120,6 +121,11 @@ function Icon({ name, className, size = 24, style }: IconProps) {
       <>
         <rect x="3" y="11" width="18" height="11" rx="2" />
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </>
+    ),
+    loading: (
+      <>
+        <path d="M21 12a9 9 0 1 1-6.22-8.56" />
       </>
     ),
   }

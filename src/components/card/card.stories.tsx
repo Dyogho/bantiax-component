@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import Card, { CARD_INTERACTION, CARD_ORIENTATION, CARD_SIZE, CARD_STATUS, CARD_VARIANT } from '@/components/card/card'
+import Card, {
+  CARD_BG,
+  CARD_BORDER,
+  CARD_INTERACTION,
+  CARD_ORIENTATION,
+  CARD_SIZE,
+  CARD_STATUS,
+  CARD_TEXT,
+  CARD_VARIANT,
+} from '@/components/card/card'
 import '@/landing/landing.css'
 
 const demoContent = (
@@ -18,7 +27,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Card reutilizable con variantes visuales, tamaños responsivos, orientación vertical/horizontal, interacción opcional, estados `default`, `select` o `disabled`, y color dinámico mediante `themeColor`.',
+          'Card reutilizable con variantes visuales, tamaños responsivos, orientación vertical/horizontal, interacción opcional, estados y tokens limitados de paleta para bg, border y text. Nota: `bg` es un override pensado principalmente para variantes con fondo (`filled` y `outlined-filled`); usarlo en `minimal` u `outlined` rompe intencionalmente la semántica base de esas variantes.'
       },
     },
   },
@@ -29,7 +38,9 @@ const meta = {
     interaction: 'none',
     orientation: 'vertical',
     status: 'default',
-    themeColor: 'var(--color-primary)',
+    bg: 'default',
+    border: 'default',
+    text: 'default',
   },
   argTypes: {
     children: {
@@ -41,7 +52,7 @@ const meta = {
       control: 'select',
       options: Object.values(CARD_VARIANT),
       description:
-        '`minimal` sin bordes ni fondo; `outlined-filled` con border y bg; `outlined` con border sin bg; `filled` sin border y con bg.',
+        '`minimal` sin bordes ni fondo; `outlined-filled` con border y bg; `outlined` con border sin bg; `filled` sin border y con bg primary/text black por defecto.',
       table: { category: 'Appearance', defaultValue: { summary: 'minimal' } },
     },
     size: {
@@ -68,11 +79,23 @@ const meta = {
       description: 'Estado del card: `default`, `select` o `disabled`.',
       table: { category: 'State', defaultValue: { summary: 'default' } },
     },
-    themeColor: {
-      control: 'text',
-      description:
-        'Token CSS o color directo usado por el card. Ejemplos: `var(--color-primary)`, `var(--color-secondary)`, `#ff007f`.',
-      table: { category: 'Style tokens', defaultValue: { summary: 'var(--border-cyan)' } },
+    bg: {
+      control: 'select',
+      options: Object.values(CARD_BG),
+      description: 'Token limitado de background. `default` respeta la variante. Uso recomendado: `filled` y `outlined-filled`. En `minimal` u `outlined` funciona como override explícito y rompe la semántica “sin bg”.',
+      table: { category: 'Palette tokens', defaultValue: { summary: 'default' } },
+    },
+    border: {
+      control: 'select',
+      options: Object.values(CARD_BORDER),
+      description: 'Token limitado de border. `default` respeta la variante; los demás sobrescriben `--card-border`.',
+      table: { category: 'Palette tokens', defaultValue: { summary: 'default' } },
+    },
+    text: {
+      control: 'select',
+      options: Object.values(CARD_TEXT),
+      description: 'Token limitado de color de texto. `default` respeta la variante.',
+      table: { category: 'Palette tokens', defaultValue: { summary: 'default' } },
     },
     as: {
       control: false,
@@ -108,7 +131,7 @@ export const OutlinedFilled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante con borde, background y borde redondeado. El borde usa `themeColor`.',
+        story: 'Variante con borde, background y borde redondeado.',
       },
     },
   },
@@ -121,7 +144,7 @@ export const Outlined: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante con borde y borde redondeado, sin background. El borde usa `themeColor`.',
+        story: 'Variante con borde y borde redondeado, sin background. Si se usa `bg`, se considera un override explícito que rompe esta semántica.'
       },
     },
   },
@@ -134,7 +157,7 @@ export const Filled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante con background y borde redondeado, sin border.',
+        story: 'Variante con background primary y texto black por defecto, sin border.',
       },
     },
   },
@@ -168,7 +191,7 @@ export const Active: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interacción activa: el card se levanta ligeramente en hover o focus visible usando `themeColor` para la sombra.',
+        story: 'Interacción activa: el card se levanta ligeramente en hover o focus visible, sin shadow base.',
       },
     },
   },
@@ -202,45 +225,46 @@ export const Horizontal: Story = {
   },
 }
 
-export const PrimaryThemeColor: Story = {
+export const PrimaryBorder: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Usa un token global primario sin agregar clases nuevas al CSS del componente.',
+        story: 'Token de border primario sobre variante outlined-filled.',
       },
     },
   },
   args: {
-    themeColor: 'var(--color-primary)',
+    border: 'primary',
     variant: 'outlined-filled',
   },
 }
 
-export const SecondaryThemeColor: Story = {
+export const SecondaryFilled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Usa un token global secundario reutilizando la misma API dinámica `themeColor`.',
+        story: 'Card solo con background secondary usando `variant="filled"`. Como secondary es oscuro, se usa `text="main"` para contraste.'
       },
     },
   },
   args: {
-    themeColor: 'var(--color-secondary)',
+    bg: 'secondary',
+    text: 'main',
+    variant: 'filled',
+  },
+}
+
+export const DangerOutlined: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ejemplo usando token danger en border, sin agregar valores libres ni HEX.',
+      },
+    },
+  },
+  args: {
+    border: 'danger',
     variant: 'outlined',
-  },
-}
-
-export const CustomThemeColor: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Ejemplo con color directo. Permite tokens nuevos como warning/success o HEX temporales sin tocar Card.',
-      },
-    },
-  },
-  args: {
-    themeColor: '#ff007f',
-    variant: 'outlined-filled',
   },
 }
 

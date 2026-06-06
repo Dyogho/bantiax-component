@@ -23,6 +23,7 @@
   --text-main: var(--color-pure-white);
   --text-muted: var(--color-muted-slate);
   --text-dark: var(--color-metallic-silver);
+  --text-black: var(--color-dark-base);
   --brand-cyan: var(--color-neon-cyan);
   --brand-green: var(--color-active-green);
   --brand-identity: var(--color-forest-green);

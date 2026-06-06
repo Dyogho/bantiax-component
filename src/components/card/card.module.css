@@ -1,14 +1,14 @@
 .card {
-  --card-theme-color: var(--border-cyan);
   --card-bg: transparent;
   --card-border: transparent;
+  --card-text: var(--text-main);
 
   display: flex;
   width: 100%;
-  color: var(--text-main);
+  color: var(--card-text);
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, opacity 0.2s, transform 0.2s;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s, opacity 0.2s, transform 0.2s;
 }
 
 .small {
@@ -46,14 +46,14 @@
 
 .outlined-filled {
   --card-bg: var(--bg-card);
-  --card-border: var(--card-theme-color);
+  --card-border: var(--border-cyan);
 
   border-radius: 1rem;
 }
 
 .outlined {
   --card-bg: transparent;
-  --card-border: var(--card-theme-color);
+  --card-border: var(--border-cyan);
 
   border-radius: 1rem;
 }
@@ -61,21 +61,74 @@
 .filled {
   --card-bg: var(--color-primary);
   --card-border: transparent;
+  --card-text: var(--text-black);
 
-  color: #000;
   border-radius: 1rem;
 }
 
 .active:hover,
 .active:focus-visible {
   transform: translateY(-0.25rem);
-  box-shadow: 0 1rem 2rem color-mix(in srgb, var(--card-theme-color) 18%, transparent);
 }
 
 .select {
-  --card-border: var(--card-theme-color);
+  --card-border: var(--color-primary);
+}
 
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--card-theme-color) 25%, transparent);
+.bg-primary {
+  --card-bg: var(--color-primary);
+}
+
+.bg-secondary {
+  --card-bg: var(--color-secondary);
+}
+
+.bg-danger {
+  --card-bg: var(--brand-danger);
+}
+
+.bg-card {
+  --card-bg: var(--bg-card);
+}
+
+.bg-transparent {
+  --card-bg: transparent;
+}
+
+.border-primary {
+  --card-border: var(--color-primary);
+}
+
+.border-secondary {
+  --card-border: var(--color-secondary);
+}
+
+.border-danger {
+  --card-border: var(--brand-danger);
+}
+
+.border-cyan {
+  --card-border: var(--border-cyan);
+}
+
+.border-transparent {
+  --card-border: transparent;
+}
+
+.text-main {
+  --card-text: var(--text-main);
+}
+
+.text-muted {
+  --card-text: var(--text-muted);
+}
+
+.text-dark {
+  --card-text: var(--text-dark);
+}
+
+.text-black {
+  --card-text: var(--text-black);
 }
 
 .disabled {

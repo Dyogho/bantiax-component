@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import Card from '@/components/card/card'
+import Card, { type CardOrientation } from '@/components/card/card'
 import type { IconName } from '@/components/icon/icon'
 import Icon from '@/components/icon/icon'
 import styles from './hero-card.module.css'
@@ -9,30 +8,71 @@ type HeroCardProps = {
   title: string
   description: string
   imageSrc?: string
+  orientation?: CardOrientation
+  isActive?: boolean
+  onClick?: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }
 
-function HeroCard({ icon, title, description, imageSrc }: HeroCardProps) {
-  const [isActive, setIsActive] = useState(false)
+function HeroCard({
+  icon,
+  title,
+  description,
+  orientation = 'vertical',
+  isActive = false,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}: HeroCardProps) {
+  const interaction = onClick ? 'active' : 'none'
+  const status = isActive ? 'select' : 'default'
   const classes = [styles.card, isActive ? styles.active : ''].filter(Boolean).join(' ')
+  const content = (
+    <span className={styles.content}>
+      <span className={styles.iconWrap}>
+        <Icon name={icon} className={styles.icon} size={48} />
+      </span>
+      <span className={styles.line} aria-hidden="true" />
+      <span className={styles.title}>{title}</span>
+      <span className={styles.description}>{description}</span>
+    </span>
+  )
+
+  if (onClick) {
+    return (
+      <Card
+        as="button"
+        aria-expanded={isActive}
+        className={classes}
+        interaction={interaction}
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        orientation={orientation}
+        status={status}
+        themeColor={isActive ? 'var(--color-primary)' : undefined}
+        type="button"
+        variant="minimal"
+      >
+        {content}
+      </Card>
+    )
+  }
 
   return (
     <Card
-      as="button"
-      aria-expanded={isActive}
+      as="article"
       className={classes}
-      onClick={() => setIsActive((current) => !current)}
-      type="button"
+      interaction={interaction}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      orientation={orientation}
+      status={status}
+      themeColor={isActive ? 'var(--color-primary)' : undefined}
       variant="minimal"
     >
-      {imageSrc ? <span aria-hidden="true" className={styles.image} style={{ backgroundImage: `url(${imageSrc})` }} /> : null}
-      <span className={styles.content}>
-        <span className={styles.iconWrap}>
-          <Icon name={icon} className={styles.icon} size={48} />
-        </span>
-        <span className={styles.line} aria-hidden="true" />
-        <span className={styles.title}>{title}</span>
-        <span className={styles.description}>{description}</span>
-      </span>
+      {content}
     </Card>
   )
 }

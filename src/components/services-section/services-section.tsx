@@ -42,7 +42,7 @@ function ServicesSection() {
 
           <div className="services-highlight-footer">
             <a className="btn-primary btn-primary-large" href="#riesgo">Evaluar Ahora</a>
-            <StatsCard label="Años de experiencia mínima" value="15+" />
+            <StatsCard orientation="vertical" size="large" title="Años de experiencia mínima" value="15+" />
           </div>
         </div>
       </article>

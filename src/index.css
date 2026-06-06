@@ -9,6 +9,8 @@
   --color-forest-green: #0e4f37;
   --color-metallic-silver: #8591a5;
   --color-danger: #ef4444;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
 
   --color-primary: var(--color-neon-cyan);
   --color-secondary: var(--color-forest-green);

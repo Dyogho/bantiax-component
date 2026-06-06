@@ -659,26 +659,6 @@
   margin-top: 2rem;
 }
 
-.stats-card {
-  display: grid;
-  gap: 0.125rem;
-  padding: 0.85rem 1rem;
-  border-radius: 0.875rem;
-  background: var(--color-slate-gray);
-}
-
-.stats-card strong {
-  color: var(--text-main);
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.stats-card span {
-  color: var(--text-dark);
-  font-size: 0.625rem;
-  text-transform: uppercase;
-}
-
 .services-box {
   border: 1px solid var(--border-color);
   background-color: #050505;

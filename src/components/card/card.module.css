@@ -7,7 +7,7 @@
   width: 100%;
   color: var(--card-text);
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  border: 0;
   transition: border-color 0.2s, background-color 0.2s, color 0.2s, opacity 0.2s, transform 0.2s;
 }
 
@@ -48,6 +48,7 @@
   --card-bg: var(--bg-card);
   --card-border: var(--border-cyan);
 
+  border: 1px solid var(--card-border);
   border-radius: 1rem;
 }
 
@@ -55,6 +56,7 @@
   --card-bg: transparent;
   --card-border: var(--border-cyan);
 
+  border: 1px solid var(--card-border);
   border-radius: 1rem;
 }
 
@@ -97,22 +99,32 @@
 
 .border-primary {
   --card-border: var(--color-primary);
+
+  border: 1px solid var(--card-border);
 }
 
 .border-secondary {
   --card-border: var(--color-secondary);
+
+  border: 1px solid var(--card-border);
 }
 
 .border-danger {
   --card-border: var(--brand-danger);
+
+  border: 1px solid var(--card-border);
 }
 
 .border-cyan {
   --card-border: var(--border-cyan);
+
+  border: 1px solid var(--card-border);
 }
 
 .border-transparent {
   --card-border: transparent;
+
+  border: 0;
 }
 
 .text-main {

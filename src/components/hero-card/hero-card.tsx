@@ -22,7 +22,7 @@ function HeroCard({ icon, title, description, imageSrc }: HeroCardProps) {
       className={classes}
       onClick={() => setIsActive((current) => !current)}
       type="button"
-      variant="transparent"
+      variant="minimal"
     >
       {imageSrc ? <span aria-hidden="true" className={styles.image} style={{ backgroundImage: `url(${imageSrc})` }} /> : null}
       <span className={styles.content}>

@@ -11,7 +11,7 @@ type SolutionCardProps = {
 
 function SolutionCard({ icon, title, description, href = '#servicios' }: SolutionCardProps) {
   return (
-    <Card className="risk-card" variant="full">
+    <Card className="risk-card" variant="filled">
       <div className="icon-wrapper">
         <Icon name={icon} size={20} />
       </div>

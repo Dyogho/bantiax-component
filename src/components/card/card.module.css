@@ -1,26 +1,106 @@
 .card {
-  padding: 1.5rem;
+  --card-theme-color: var(--border-cyan);
+  --card-bg: transparent;
+  --card-border: transparent;
+
+  display: flex;
+  width: 100%;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.small {
+  max-width: 18rem;
+  gap: calc(var(--layout-size-small) * 0.75);
+  padding: var(--layout-size-small);
+}
+
+.medium {
+  max-width: 24rem;
+  gap: var(--layout-size-medium);
+  padding: calc(var(--layout-size-medium) * 1.25);
+}
+
+.large {
+  max-width: 34rem;
+  gap: var(--layout-size-large);
+  padding: calc(var(--layout-size-large) * 1.25);
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: column;
+}
+
+.minimal {
+  --card-bg: transparent;
+  --card-border: transparent;
+
+  border-radius: 0;
+}
+
+.outlined-filled {
+  --card-bg: var(--bg-card);
+  --card-border: var(--card-theme-color);
+
   border-radius: 1rem;
 }
 
-.transparent {
-  border: 0;
-  background: transparent;
+.outlined {
+  --card-bg: transparent;
+  --card-border: var(--card-theme-color);
+
+  border-radius: 1rem;
 }
 
-.full {
-  border: 1px solid var(--brand-cyan);
+.filled {
+  --card-bg: var(--color-primary);
+  --card-border: transparent;
+
   color: #000;
-  background: var(--brand-cyan);
+  border-radius: 1rem;
 }
 
-.border {
-  border: 1px solid var(--brand-cyan);
-  background: transparent;
+.active:hover,
+.active:focus-visible {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1rem 2rem color-mix(in srgb, var(--card-theme-color) 18%, transparent);
 }
 
-.secondary {
-  border: 0;
-  color: var(--text-main);
-  background: var(--brand-identity);
+.select {
+  --card-border: var(--card-theme-color);
+
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--card-theme-color) 25%, transparent);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .small {
+    padding: calc(var(--layout-size-small) * 1.25);
+  }
+
+  .medium {
+    padding: calc(var(--layout-size-medium) * 1.5);
+  }
+
+  .large {
+    padding: calc(var(--layout-size-large) * 1.5);
+  }
+}
+
+@media (min-width: 768px) {
+  .horizontal {
+    flex-direction: row;
+    align-items: center;
+  }
 }

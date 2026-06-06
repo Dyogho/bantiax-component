@@ -10,7 +10,7 @@ type ServiceCardProps = {
 
 function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
-    <Card className="service-simple-card" variant="transparent">
+    <Card className="service-simple-card" variant="minimal">
       <Icon name={icon} className="service-simple-icon" size={30} />
       <h3>{title}</h3>
       <p>{description}</p>

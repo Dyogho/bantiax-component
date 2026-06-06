@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Botón reutilizable de Bantiax. Color `primary` usa fondo primario y texto negro; `secondary` usa fondo secundario y texto blanco. Los estados documentados son `default`, `danger`, `disabled` y `loading`.',
+          'Botón reutilizable de Bantiax. Usa tokens globales de paleta mediante variables locales del componente: primary usa fondo primario/text black; secondary usa fondo secundario/text main. Los estados documentados son `default`, `danger`, `disabled` y `loading`.'
       },
     },
   },
@@ -30,7 +30,7 @@ const meta = {
     color: {
       control: 'select',
       options: Object.values(BUTTON_COLOR),
-      description: '`primary` usa fondo primario con texto negro; `secondary` usa fondo secundario con texto blanco.',
+      description: '`primary` usa `--color-primary` con `--text-black`; `secondary` usa `--color-secondary` con `--text-main`.',
       table: { category: 'Appearance', defaultValue: { summary: 'primary' } },
     },
     size: {
@@ -67,7 +67,7 @@ export const Primary: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante principal. Usa `--color-primary` como fondo y texto negro.',
+        story: 'Variante principal. Usa token `--color-primary` como fondo y `--text-black` como texto.'
       },
     },
   },
@@ -84,7 +84,7 @@ export const Secondary: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante secundaria. Usa `--color-secondary` como fondo y texto blanco.',
+        story: 'Variante secundaria. Usa token `--color-secondary` como fondo y `--text-main` como texto.'
       },
     },
   },
@@ -101,7 +101,7 @@ export const Danger: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Estado destructivo. Usa la variable global `--color-danger` definida en `src/index.css`.',
+        story: 'Estado destructivo. Usa `--brand-danger`/`--color-danger` y `--text-main` mediante variables locales del botón.'
       },
     },
   },

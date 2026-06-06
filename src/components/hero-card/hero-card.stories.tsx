@@ -25,7 +25,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'HeroCard es una molécula basada en Card minimal. Puede renderizarse como `article` estático o como `button` interactivo cuando recibe `onClick`; delega orientación, interacción y estado activo al componente Card.'
+          'HeroCard es una molécula basada en Card minimal. Puede renderizarse como `article` estático o como `button` interactivo cuando recibe `onClick`; delega orientación, interacción y estado activo al componente Card. La imagen activa del hero se maneja en la sección Hero, no dentro de HeroCard.',
       },
     },
   },
@@ -61,7 +61,7 @@ const meta = {
     },
     isActive: {
       control: 'boolean',
-      description: 'Marca el card como activo/seleccionado y usa `status="select"` con `themeColor` primario.',
+      description: 'Marca el card como activo/seleccionado y usa `status="select"` con border primario.',
       table: { category: 'State', defaultValue: { summary: 'false' } },
     },
     onClick: {
@@ -111,7 +111,7 @@ export const Selected: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Estado activo/seleccionado. Delega `status="select"` y `themeColor="var(--color-primary)"` al Card.',
+        story: 'Estado activo/seleccionado. Delega `status="select"` y `border="primary"` al Card.',
       },
     },
   },

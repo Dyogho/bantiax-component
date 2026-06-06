@@ -12,7 +12,7 @@ function Hero() {
       <div className="hero-content">
         <div className="hero-grid">
           {heroCards.map((card) => (
-            <HeroCard description={card.desc} icon={card.icon} imageSrc={card.imageSrc} key={card.title} title={card.title} />
+            <HeroCard description={card.desc} icon={card.icon} key={card.title} title={card.title} />
           ))}
         </div>
       </div>

@@ -22,17 +22,6 @@
   }
 }
 
-.image {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  opacity: 0;
-  background-position: center;
-  background-size: cover;
-  transform: scale(1.05);
-  transition: opacity 0.16s ease, transform 0.16s ease;
-}
-
 .card::before {
   position: absolute;
   inset: 0;
@@ -62,19 +51,10 @@
   }
 }
 
-.card:hover .image,
-.card:focus-visible .image,
-.active .image,
 .card:hover::before,
 .card:focus-visible::before,
 .active::before {
   opacity: 1;
-}
-
-.card:hover .image,
-.card:focus-visible .image,
-.active .image {
-  transform: scale(1);
 }
 
 .content {
@@ -87,14 +67,14 @@
 
 .iconWrap {
   display: inline-flex;
-  color: var(--brand-cyan);
+  color: var(--color-primary);
 }
 
 .icon {
   position: relative;
   z-index: 1;
   flex-shrink: 0;
-  color: var(--brand-cyan);
+  color: var(--color-primary);
 }
 
 .line {
@@ -102,13 +82,13 @@
   z-index: 1;
   width: 48px;
   height: 1px;
-  background: var(--brand-cyan);
+  background: var(--color-primary);
 }
 
 .title {
   position: relative;
   z-index: 1;
-  color: var(--brand-cyan);
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 700;
   transition: color 0.16s ease;

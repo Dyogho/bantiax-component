@@ -7,7 +7,6 @@ type HeroCardProps = {
   icon: IconName
   title: string
   description: string
-  imageSrc?: string
   orientation?: CardOrientation
   isActive?: boolean
   onClick?: () => void
@@ -45,13 +44,13 @@ function HeroCard({
         as="button"
         aria-expanded={isActive}
         className={classes}
+        border={isActive ? 'primary' : undefined}
         interaction={interaction}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         orientation={orientation}
         status={status}
-        themeColor={isActive ? 'var(--color-primary)' : undefined}
         type="button"
         variant="minimal"
       >
@@ -64,12 +63,12 @@ function HeroCard({
     <Card
       as="article"
       className={classes}
+      border={isActive ? 'primary' : undefined}
       interaction={interaction}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       orientation={orientation}
       status={status}
-      themeColor={isActive ? 'var(--color-primary)' : undefined}
       variant="minimal"
     >
       {content}

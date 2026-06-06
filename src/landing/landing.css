@@ -288,8 +288,12 @@
 }
 
 .multiplier-box {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--brand-identity);
+  grid-template-areas:
+    'header'
+    'summary'
+    'main';
+  align-items: stretch;
+  overflow: hidden;
 }
 
 .eyebrow {
@@ -310,23 +314,56 @@
 }
 
 .multiplier-header {
-  display: flex;
+  display: grid;
+  grid-area: header;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+}
+
+.multiplier-summary {
+  grid-area: summary;
+  width: 100%;
 }
 
 .multiplier-title {
-  margin: 0.5rem 0 0;
-  color: var(--brand-cyan);
+  margin: 0;
+  color: var(--color-primary);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.multiplier-cta {
-  flex-shrink: 0;
-  margin-top: 0.25rem;
+.multiplier-desc {
+  max-width: 56rem;
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.multiplier-link {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.multiplier-main {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.multiplier-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-self: start;
+}
+
+.multiplier-info-list {
+  display: grid;
+  gap: 1rem;
 }
 
 .benefits-list {
@@ -358,83 +395,11 @@
 
 .multiplier-mockup {
   display: flex;
+  max-height: 30rem;
+  align-self: end;
   justify-content: center;
-}
-
-.phone-card {
-  width: 100%;
-  max-width: 320px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  background-color: #0b0f14;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.phone-notch {
-  width: 3rem;
-  height: 1rem;
-  margin: 0 auto 1.5rem;
-  border-radius: 9999px;
-  background-color: var(--color-slate-gray);
-}
-
-.phone-muted,
-.phone-greeting {
-  margin: 0;
-  font-size: 0.75rem;
-}
-
-.phone-muted {
-  color: var(--color-metallic-silver);
-}
-
-.phone-greeting {
-  margin-top: 1rem;
-  color: var(--color-muted-slate);
-}
-
-.phone-balance {
-  margin: 0.25rem 0 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.phone-divider {
-  height: 2px;
-  margin: 1rem 0;
-  background: linear-gradient(90deg, transparent, var(--brand-cyan), transparent);
-}
-
-.phone-stats {
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  color: var(--text-muted);
-  background-color: rgba(30, 41, 59, 0.72);
-  font-size: 0.75rem;
-}
-
-.phone-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.phone-row:last-child {
-  margin-bottom: 0;
-}
-
-.btn-block {
-  width: 100%;
-  margin-top: 1.5rem;
-  padding: 0.625rem;
-  border: 0;
-  border-radius: 0.5rem;
-  color: #000;
-  background-color: var(--brand-cyan);
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
+  margin-bottom: -2rem;
+  overflow: hidden;
 }
 
 .risk-section {
@@ -875,16 +840,48 @@
 @media (min-width: 1024px) {
   .multiplier-box,
   .services-box {
-    grid-template-columns: repeat(12, 1fr);
     padding: 3rem;
   }
 
-  .multiplier-content {
-    grid-column: span 7;
+  .services-box {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .multiplier-box {
+    grid-template-columns: minmax(0, 1fr) auto minmax(16rem, 0.8fr);
+    grid-template-rows: auto auto auto;
+  }
+
+  .multiplier-header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .multiplier-summary {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .multiplier-main {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    grid-template-columns: minmax(0, 1fr) auto minmax(16rem, 0.8fr);
+  }
+
+  .multiplier-info-list {
+    grid-column: 1;
+  }
+
+  .multiplier-actions {
+    grid-column: 2;
   }
 
   .multiplier-mockup {
-    grid-column: span 5;
+    grid-column: 3;
+    max-height: 28rem;
+    justify-content: flex-end;
+    margin-bottom: -3rem;
   }
 
   .risk-grid,
@@ -913,15 +910,6 @@
 
   .metrics-grid {
     gap: 1rem;
-  }
-
-  .multiplier-header {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .multiplier-cta {
-    width: 100%;
   }
 
   .logo-item {

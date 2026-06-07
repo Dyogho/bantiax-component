@@ -477,6 +477,23 @@
   line-height: 1.35;
 }
 
+.risk-summary-card {
+  max-width: 36rem;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto 0;
+  background: transparent;
+  text-align: center;
+}
+
+.risk-summary-card p {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .icon-wrapper {
   display: flex;
   width: 2.5rem;

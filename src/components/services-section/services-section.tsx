@@ -1,17 +1,18 @@
+import Button, { BUTTON_COLOR, BUTTON_SIZE } from '@/components/button/button'
+import InfoCard, { INFO_CARD_SIZE } from '@/components/info-card/info-card'
+import StatsCard, { STATS_CARD_ORIENTATION, STATS_CARD_SIZE } from '@/components/stats-card/stats-card'
 import { services } from '@/landing/data'
-import ServiceCard from '@/components/service-card/service-card'
-import StatsCard from '@/components/stats-card/stats-card'
 
 function ServicesSection() {
   return (
     <section id="servicios" className="services-section">
       <div className="services-heading">
-        <h2 className="section-title section-title-primary">Nuestros Servicios</h2>
+        <h2 className="section-title section-title-primary">NUESTROS SERVICIOS</h2>
       </div>
 
-      <div className="services-simple-grid">
+      <div className="services-info-list">
         {services.map((service) => (
-          <ServiceCard description={service.desc} icon={service.icon} key={service.title} title={service.title} />
+          <InfoCard icon={service.icon} iconColor="primary" key={service.title} size={INFO_CARD_SIZE.LARGE} title={service.title} titleColor="main" />
         ))}
       </div>
 
@@ -22,27 +23,52 @@ function ServicesSection() {
         </div>
 
         <div className="services-highlight-content">
-          <span className="highlight-text eyebrow small">CONSULTORÍA ESTRATÉGICA</span>
-          <h3>Transformamos empresas en potencias de financiamiento</h3>
+          <InfoCard icon="briefcase" iconColor="main" size={INFO_CARD_SIZE.LARGE} title="CONSULTORÍA ESTRATÉGICA" titleColor="main" />
 
-          <div className="services-copy-block">
-            <h4>Somos expertos creando y gestionando</h4>
-            <p>Creadores, innovadores y estrategas.</p>
+          <div className="services-highlight-intro">
+            <h3>Transformamos empresas en potencias de financiamiento</h3>
+            <p>Somos expertos creando y gestionando</p>
           </div>
 
-          <div className="services-copy-block">
-            <h4>Creamos Fintech desde cero, con tecnología propia, generando ventajas competitivas.</h4>
-            <p>Gestores de potencias de financiamiento.</p>
-          </div>
-
-          <div className="services-copy-block">
-            <h4>Transformamos el riesgo en récords de rentabilidad.</h4>
-            <p>Implementación ágil y cero fricción con el punto de venta.</p>
+          <div className="services-highlight-list">
+            <InfoCard
+              description="Creamos Fintech desde cero, con tecnología propia, generando ventajas competitivas."
+              descriptionColor="muted"
+              icon="lightbulb"
+              iconColor="main"
+              size={INFO_CARD_SIZE.LARGE}
+              title="Creadores, innovadores y estrategas."
+              titleColor="main"
+            />
+            <InfoCard
+              description="Transformamos el riesgo en récords de rentabilidad."
+              descriptionColor="muted"
+              icon="trending-up"
+              iconColor="main"
+              size={INFO_CARD_SIZE.LARGE}
+              title="Gestores de potencias de financiamiento"
+              titleColor="main"
+            />
+            <InfoCard
+              icon="clock"
+              iconColor="main"
+              size={INFO_CARD_SIZE.LARGE}
+              title="Implementación ágil y cero fricción con el punto de venta"
+              titleColor="main"
+            />
           </div>
 
           <div className="services-highlight-footer">
-            <a className="btn-primary btn-primary-large" href="#riesgo">Evaluar Ahora</a>
-            <StatsCard orientation="vertical" size="large" title="Años de experiencia mínima" value="15+" />
+            <Button color={BUTTON_COLOR.PRIMARY} icon="clock" size={BUTTON_SIZE.LARGE} text="Contactanos" />
+            <StatsCard
+              className="services-experience-stat"
+              orientation={STATS_CARD_ORIENTATION.HORIZONTAL}
+              size={STATS_CARD_SIZE.LARGE}
+              title="Años de experiencia"
+              titleColor="main"
+              value="15"
+              valueColor="main"
+            />
           </div>
         </div>
       </article>

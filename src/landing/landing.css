@@ -543,9 +543,10 @@
   text-align: center;
 }
 
-.services-simple-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.services-info-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   max-width: 72rem;
   margin: 0 auto;
@@ -603,42 +604,43 @@
   object-fit: cover;
 }
 
-.services-highlight-images img:nth-child(2) {
-  margin-top: 2rem;
+.services-highlight-content {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1.75rem;
 }
 
-.services-highlight-content h3 {
-  margin: 0.75rem 0 1.5rem;
-  color: var(--text-main);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.15;
+.services-highlight-intro h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.05;
 }
 
-.services-copy-block {
-  margin-bottom: 1.25rem;
-}
-
-.services-copy-block h4 {
-  margin: 0 0 0.35rem;
+.services-highlight-intro p {
+  margin: 0.75rem 0 0;
   color: var(--text-main);
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 
-.services-copy-block p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  line-height: 1.7;
+.services-highlight-list {
+  display: grid;
+  gap: 1.25rem;
 }
 
 .services-highlight-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+.services-experience-stat p:first-child::after {
+  color: var(--color-primary);
+  content: '+';
 }
 
 .services-box {
@@ -840,8 +842,7 @@
     font-size: 2.25rem;
   }
 
-  .risk-grid,
-  .services-simple-grid {
+  .risk-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -901,14 +902,23 @@
     margin-bottom: -3rem;
   }
 
-  .risk-grid,
-  .services-simple-grid {
+  .risk-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
   .services-highlight-card {
     grid-template-columns: 5fr 7fr;
-    align-items: center;
+    align-items: stretch;
+  }
+
+  .services-highlight-images {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-highlight-images img {
+    height: 100%;
+    min-height: 18rem;
   }
 
   .services-images {

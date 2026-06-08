@@ -16,8 +16,8 @@
 
 .phone {
   position: relative;
-  width: min(100%, 18rem);
-  aspect-ratio: 9 / 16;
+  width: min(100%, 18.125rem);
+  aspect-ratio: 29 / 60;
   margin: 0 auto;
   overflow: hidden;
   border: 0.625rem solid var(--color-dark-base);

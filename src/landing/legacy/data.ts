@@ -162,7 +162,7 @@ export const fintechTurnkeySectionData = {
   },
   title: 'Efecto Multiplicador de Beneficios: incrementas rentabilidad, blindas tu ecosistema y más.',
   description:
-    'Integramos tecnología, operación y estrategia para lanzar modelos financieros digitales con procesos seguros, escalables y listos para crecer.',
+    'Con tu nueva línea de negocio, agregas inteligencia financiera a tu empresa, tomas el control total de tu cadena de valor y obtienes muchos beneficios.',
   mockupCaption: 'Créditos al instante',
 }
 
@@ -171,25 +171,30 @@ export const turnkeyBenefits = [
     title: 'La rentabilidad se eleva estructuralmente',
     description:
       'Por la captura del margen financiero, la venta cruzada y el incremento del gasto; optimizando la rentabilidad del ecosistema.',
+    icon: 'benefit-step' as IconName,
   },
   {
     title: 'El gasto del cliente se expande',
     description: 'Comprará más por: mayor ticket de producto, créditos de celulares y de efectivo y seguros.',
+    icon: 'benefit-clock' as IconName,
   },
   {
     title: 'Ecosistema de fidelidad en tu control',
     description:
       'Elevas el Life Time Value, convirtiendo al cliente en flujo de caja recurrente. Reduces la fuga por la creación de barreras de salida.',
+    icon: 'benefit-heart' as IconName,
   },
   {
     title: 'Monetizas activos',
     description:
       'Conviertes la data transaccional y patrones de consumo en activos predictibles de costo reducido, para elevar el LTV.',
+    icon: 'benefit-database' as IconName,
   },
   {
     title: 'Fricción cero en el punto de venta',
     description:
       'Costo de adquisición reducido, sin curva de aprendizaje tradicional, sistema listo para la FFVV, maximizando el margen desde el día uno.',
+    icon: 'benefit-zap' as IconName,
   },
 ]
 

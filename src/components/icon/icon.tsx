@@ -27,6 +27,11 @@ const ICON_NAME = {
   BAR_CHART: 'bar-chart',
   LOCK: 'lock',
   LOADING: 'loading',
+  BENEFIT_STEP: 'benefit-step',
+  BENEFIT_CLOCK: 'benefit-clock',
+  BENEFIT_HEART: 'benefit-heart',
+  BENEFIT_DATABASE: 'benefit-database',
+  BENEFIT_ZAP: 'benefit-zap',
 } as const
 
 type IconName = (typeof ICON_NAME)[keyof typeof ICON_NAME]
@@ -147,6 +152,19 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
     </>
   ),
   loading: <path d="M21 12a9 9 0 1 1-6.22-8.56" />,
+  'benefit-step': <path fill="currentColor" stroke="none" d="M476 480h-152c-19.88 0-36-16.12-36-36v-348H192v156c0 19.88-16.12 36-36 36H31.1C14.33 288 0 273.7 0 256s14.33-31.1 31.1-31.1H128v-156c0-19.88 16.12-36 36-36h152c19.88 0 36 16.12 36 36v348h96v-156c0-19.88 16.12-36 36-36h124C625.7 224 640 238.3 640 256s-14.33 32-31.1 32H512v156C512 463.9 495.9 480 476 480z" />,
+  'benefit-clock': <path fill="currentColor" stroke="none" d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512zM232 256C232 264 236 271.5 242.7 275.1L338.7 339.1C349.7 347.3 364.6 344.3 371.1 333.3C379.3 322.3 376.3 307.4 365.3 300L280 243.2V120C280 106.7 269.3 96 255.1 96C242.7 96 231.1 106.7 231.1 120L232 256z" />,
+  'benefit-heart': <path fill="currentColor" stroke="none" d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z" />,
+  'benefit-database': <path fill="currentColor" stroke="none" d="M448 80V128C448 172.2 347.7 208 224 208C100.3 208 0 172.2 0 128V80C0 35.82 100.3 0 224 0C347.7 0 448 35.82 448 80zM393.2 214.7C413.1 207.3 433.1 197.8 448 186.1V288C448 332.2 347.7 368 224 368C100.3 368 0 332.2 0 288V186.1C14.93 197.8 34.02 207.3 54.85 214.7C99.66 230.7 159.5 240 224 240C288.5 240 348.3 230.7 393.2 214.7V214.7zM54.85 374.7C99.66 390.7 159.5 400 224 400C288.5 400 348.3 390.7 393.2 374.7C413.1 367.3 433.1 357.8 448 346.1V432C448 476.2 347.7 512 224 512C100.3 512 0 476.2 0 432V346.1C14.93 357.8 34.02 367.3 54.85 374.7z" />,
+  'benefit-zap': <path fill="currentColor" stroke="none" d="M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z" />,
+}
+
+const ICON_VIEW_BOXES: Partial<Record<IconName, string>> = {
+  'benefit-step': '0 0 640 512',
+  'benefit-clock': '0 0 512 512',
+  'benefit-heart': '0 0 512 512',
+  'benefit-database': '0 0 448 512',
+  'benefit-zap': '0 0 384 512',
 }
 
 function getClassName(className: string | undefined, variantClassName: string) {
@@ -179,7 +197,7 @@ function Icon(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={2}
         style={iconStyle}
-        viewBox="0 0 24 24"
+        viewBox={ICON_VIEW_BOXES[props.name] ?? '0 0 24 24'}
       >
         {ICON_PATHS[props.name]}
       </svg>

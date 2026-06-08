@@ -13,51 +13,58 @@ function FintechTurnkeySection() {
   return (
     <section id={fintechTurnkeySectionData.id} className="multiplier-section">
       <Card as="div" bg="secondary" className="multiplier-box" text="main" variant="filled">
-        <div className="multiplier-header">
+        <div className="multiplier-eyebrow">
           <InfoCard
             icon={fintechTurnkeySectionData.eyebrowIcon}
-            iconColor="primary"
+            iconColor="muted"
             title={fintechTurnkeySectionData.eyebrowTitle}
-            titleColor="main"
+            titleColor="muted"
           />
+        </div>
+
+        <div className="multiplier-title-area">
+          <h2 className="multiplier-title">{fintechTurnkeySectionData.title}</h2>
+        </div>
+
+        <div className="multiplier-cta">
           <a className="multiplier-link" href={fintechTurnkeySectionData.cta.href}>
-            <Button color="primary" size="medium" text={fintechTurnkeySectionData.cta.label} />
+            <Button className="multiplier-button-outline" color="primary" size="medium" text={fintechTurnkeySectionData.cta.label} />
           </a>
         </div>
 
-        <div className="multiplier-summary">
-          <h2 className="multiplier-title">{fintechTurnkeySectionData.title}</h2>
+        <div className="multiplier-description">
           <p className="multiplier-desc">{fintechTurnkeySectionData.description}</p>
         </div>
 
-        <div className="multiplier-main">
-          <div className="multiplier-info-list">
-            {turnkeyBenefits.map((benefit) => (
-              <InfoCard
-                description={benefit.description}
-                descriptionColor="muted"
-                icon="check-circle"
-                iconColor="primary"
-                key={benefit.title}
-                size="small"
-                title={benefit.title}
-                titleColor="main"
-              />
-            ))}
-          </div>
-          <div className="multiplier-actions">
-            {mockupOptions.map((option, index) => (
-              <MockupSelector
-                isActive={index === activeMockupIndex}
-                key={option.label}
-                onClick={() => setActiveMockupIndex(index)}
-                text={option.label}
-              />
-            ))}
-          </div>
-          <div className="multiplier-mockup">
-            <DeviceMockup caption={fintechTurnkeySectionData.mockupCaption} {...activeMockup} />
-          </div>
+        <div className="multiplier-benefits">
+          {turnkeyBenefits.map((benefit) => (
+            <InfoCard
+              className="multiplier-benefit-card"
+              description={benefit.description}
+              descriptionColor="muted"
+              icon={benefit.icon}
+              iconColor="primary"
+              key={benefit.title}
+              size="small"
+              title={benefit.title}
+              titleColor="main"
+            />
+          ))}
+        </div>
+
+        <div className="multiplier-actions">
+          {mockupOptions.map((option, index) => (
+            <MockupSelector
+              isActive={index === activeMockupIndex}
+              key={option.label}
+              onClick={() => setActiveMockupIndex(index)}
+              text={option.label}
+            />
+          ))}
+        </div>
+
+        <div className="multiplier-mockup">
+          <DeviceMockup caption={fintechTurnkeySectionData.mockupCaption} {...activeMockup} />
         </div>
       </Card>
     </section>

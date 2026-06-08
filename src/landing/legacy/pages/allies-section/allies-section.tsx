@@ -29,11 +29,13 @@ function AlliesSection() {
         ))}
       </div>
 
-      <div className="logos-marquee" aria-label={alliesSectionData.brandsLabel}>
-        <div className="logos-track">
-          {[...partnerBrands, ...partnerBrands].map((brand, index) => (
-            <BrandLogo alt={brand.alt} key={`${brand.alt}-${index}`} src={brand.src} />
-          ))}
+      <div className="logos-panel">
+        <div className="logos-marquee" aria-label={alliesSectionData.brandsLabel}>
+          <div className="logos-track">
+            {[...partnerBrands, ...partnerBrands].map((brand, index) => (
+              <BrandLogo alt={brand.alt} key={`${brand.alt}-${index}`} src={brand.src} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

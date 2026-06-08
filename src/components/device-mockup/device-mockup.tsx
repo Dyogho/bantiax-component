@@ -1,13 +1,16 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import styles from './device-mockup.module.css'
 
-type DeviceMockupProps = Omit<ComponentPropsWithoutRef<'img'>, 'title'> & {
+type DeviceMockupProps = Omit<ComponentPropsWithoutRef<'img'>, 'title' | 'src'> & {
+  src: string
+  caption?: string
   containerClassName?: string
 }
 
 function DeviceMockup({
-  src = '/image1.png',
+  src,
   alt = '',
+  caption,
   containerClassName = '',
   className = '',
   ...imageProps
@@ -17,7 +20,7 @@ function DeviceMockup({
 
   return (
     <figure className={containerClasses}>
-      <figcaption className={styles.title}>Créditos al instante</figcaption>
+      {caption ? <figcaption className={styles.title}>{caption}</figcaption> : null}
       <div className={styles.phone}>
         <div className={styles.notch} aria-hidden="true" />
         <img className={imageClasses} src={src} alt={alt} {...imageProps} />

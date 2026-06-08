@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Button, { BUTTON_COLOR, BUTTON_SIZE, BUTTON_STATE } from '@/components/button/button'
-import '@/landing/landing.css'
+import '@/landing/legacy/legacy.css'
 
 const meta = {
   title: 'Landing/Button',

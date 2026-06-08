@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import InfoCard, { INFO_CARD_COLOR, INFO_CARD_ORIENTATION, INFO_CARD_SIZE } from '@/components/info-card/info-card'
-import '@/landing/landing.css'
+import '@/landing/legacy/legacy.css'
 
 const meta = {
   title: 'Landing/InfoCard',

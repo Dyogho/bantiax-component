@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import MockupSelector, { MOCKUP_SELECTOR_SIZE } from '@/components/mockup-selector/mockup-selector'
-import '@/landing/landing.css'
+import '@/landing/legacy/legacy.css'
 
 const meta = {
   title: 'Landing/MockupSelector',

@@ -2,7 +2,7 @@
   --stats-accent: var(--color-primary);
   --stats-icon: var(--stats-accent);
   --stats-value: var(--stats-accent);
-  --stats-title: var(--text-muted);
+  --stats-title: var(--text-main);
   --stats-text: var(--text-main);
 
   display: inline-flex;
@@ -136,7 +136,7 @@
 
 .title {
   color: var(--stats-title);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.35;
 }
 

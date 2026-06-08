@@ -5,7 +5,7 @@ import StatsCard, {
   STATS_CARD_SIZE,
   STATS_CARD_STATUS,
 } from '@/components/stats-card/stats-card'
-import '@/landing/landing.css'
+import '@/landing/legacy/legacy.css'
 
 const meta = {
   title: 'Landing/StatsCard',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import DeviceMockup from '@/components/device-mockup/device-mockup'
-import '@/landing/landing.css'
+import '@/landing/legacy/legacy.css'
 
 const meta = {
   title: 'Landing/DeviceMockup',
@@ -12,13 +12,14 @@ const meta = {
     docs: {
       description: {
         component:
-          'DeviceMockup es un componente presentacional para simular un celular con un título superior y una imagen dentro del marco. La sección dueña controla qué imagen se muestra.',
+          'DeviceMockup es un componente presentacional para simular un celular con una imagen dentro del marco. La sección dueña controla la imagen y el caption opcional mediante props.'
       },
     },
   },
   args: {
     src: '/image1.png',
     alt: '',
+    caption: 'Créditos al instante',
     loading: 'lazy',
   },
   argTypes: {
@@ -37,6 +38,11 @@ const meta = {
       options: ['eager', 'lazy'],
       description: 'Prop nativa de img para estrategia de carga.',
       table: { category: 'Image props' },
+    },
+    caption: {
+      control: 'text',
+      description: 'Caption opcional sobre el marco. Lo define la sección dueña, no el componente.',
+      table: { category: 'Content' },
     },
     containerClassName: { control: false, table: { category: 'Advanced' } },
     className: { control: false, table: { category: 'Advanced' } },

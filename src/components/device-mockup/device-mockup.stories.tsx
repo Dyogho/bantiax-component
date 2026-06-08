@@ -17,7 +17,7 @@ const meta = {
     },
   },
   args: {
-    src: '/image1.png',
+    src: '/image1.jpg',
     alt: '',
     caption: 'Créditos al instante',
     loading: 'lazy',
@@ -57,6 +57,6 @@ export const Default: Story = {}
 
 export const FastApproval: Story = {
   args: {
-    src: '/image2.png',
+    src: '/image2.jpg',
   },
 }

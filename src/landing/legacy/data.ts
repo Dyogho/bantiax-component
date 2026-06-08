@@ -69,18 +69,19 @@ export type FooterColumn = {
   links: FooterLink[]
 }
 
-// Navbar section
-export const navbarData = {
+// Header section
+export const headerData = {
+  homeHref: 'https://doinperu.com/bantiax/',
   brand: 'BANTIAX',
-  badge: 'B',
+  tagline: 'Fintech Services',
   links: [
-    { label: 'Beneficios', href: '#beneficios' },
-    { label: 'Gestión de Riesgo', href: '#riesgo' },
-    { label: 'Servicios', href: '#servicios' },
+    { label: 'HOME', href: 'https://doinperu.com/bantiax/', ariaCurrent: 'page' },
+    { label: 'PAGES', href: 'https://doinperu.com/bantiax/', ariaCurrent: 'page' },
   ],
   cta: {
-    label: 'Contáctanos',
-    href: '#servicios',
+    label: 'Contáctenos',
+    href: '#',
+    title: 'Horarios y Contacto',
     icon: 'clock' as IconName,
   },
 }

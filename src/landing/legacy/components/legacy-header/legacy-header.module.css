@@ -1,0 +1,140 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  font-family: Roboto, 'Segoe UI', system-ui, sans-serif;
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+.headerScrolled {
+  background: #08221c;
+  border-bottom-color: rgba(148, 163, 184, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.logoSprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  max-width: 76rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logoWrap,
+.logoLink,
+.navLinks,
+.navRight,
+.contactButton {
+  display: flex;
+  align-items: center;
+}
+
+.logoWrap {
+  gap: 2.5rem;
+}
+
+.logoLink {
+  gap: 0.75rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.logoMark {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.logoLink:hover .logoMark {
+  transform: scale(1.04);
+}
+
+.wordmark {
+  color: #fff;
+  font-size: 1.625rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.53125rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.navLinks {
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLinks a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navLinks a:hover,
+.contactButton:hover {
+  color: var(--brand-cyan);
+}
+
+.contactButton {
+  gap: 0.625rem;
+  border-radius: 0.9375rem;
+  padding: 0.625rem 1.25rem;
+  color: var(--text-black);
+  background: var(--brand-cyan);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.contactButton:hover {
+  color: var(--text-black);
+  background: var(--brand-green);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .contactButton span {
+    display: none;
+  }
+
+  .contactButton {
+    padding: 0.75rem;
+  }
+}

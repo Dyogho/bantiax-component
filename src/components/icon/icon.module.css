@@ -1,0 +1,15 @@
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  color: currentColor;
+  vertical-align: middle;
+}
+
+.svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.image {
+  object-fit: contain;
+}

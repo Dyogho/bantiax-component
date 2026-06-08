@@ -16,7 +16,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'StatsCard es un componente independiente para métricas: valor estadístico + title, con icono opcional. El layout se controla con `orientation`, los tamaños son `small | medium | large`, no tiene hover/interacciones y permite editar color de icono, valor y title con tokens limitados.',
+          'StatsCard es un componente independiente para métricas: valor estadístico + title, con icono opcional. Usa `icon` para iconos internos o `iconSrc` para imágenes externas/locales; no se deben mezclar. El layout se controla con `orientation`, los tamaños son `small | medium | large`, no tiene hover/interacciones y permite editar color de icono, valor y title con tokens limitados.',
       },
     },
   },
@@ -35,8 +35,28 @@ const meta = {
     icon: {
       control: 'select',
       options: [undefined, 'globe', 'users', 'dollar-sign', 'trending-up', 'check-circle'],
-      description: 'Icono opcional. Si no se pasa, el componente renderiza solo value + title.',
+      description: 'Icono interno opcional. No usar junto con `iconSrc`.',
       table: { category: 'Content' },
+    },
+    iconSrc: {
+      control: 'text',
+      description: 'URL/path para icono externo o local. No usar junto con `icon`.',
+      table: { category: 'Content' },
+    },
+    iconAlt: {
+      control: 'text',
+      description: 'Texto alternativo para `iconSrc`. Si está vacío, la imagen es decorativa.',
+      table: { category: 'Content' },
+    },
+    iconWidth: {
+      control: 'text',
+      description: 'Ancho del icono con unidades modernas, por ejemplo `3rem`.',
+      table: { category: 'Layout' },
+    },
+    iconHeight: {
+      control: 'text',
+      description: 'Alto del icono con unidades modernas, por ejemplo `3rem`.',
+      table: { category: 'Layout' },
     },
     value: {
       control: 'text',
@@ -98,9 +118,10 @@ type Story = StoryObj<typeof meta>
 
 export const HorizontalWithIcon: Story = {
   parameters: {
+    controls: { exclude: ['iconSrc', 'iconAlt'] },
     docs: {
       description: {
-        story: 'Layout horizontal con icono opcional: útil para métricas compactas en filas o grids.',
+        story: 'Layout horizontal usando un icono interno mediante `icon`.',
       },
     },
   },
@@ -111,6 +132,28 @@ export const HorizontalWithIcon: Story = {
     orientation: 'horizontal',
   },
 }
+
+export const HorizontalWithImageIcon: Story = {
+  parameters: {
+    controls: { exclude: ['icon'] },
+    docs: {
+      description: {
+        story: 'Layout horizontal usando una imagen externa mediante `iconSrc`.',
+      },
+    },
+  },
+  args: {
+    icon: undefined,
+    iconAlt: 'Aliados',
+    iconHeight: '5.25rem',
+    iconSrc: 'https://doinperu.com/bantiax/wp-content/themes/BantiaxTheme/images/aliados.svg',
+    iconWidth: '7.4375rem',
+    value: '+ 500',
+    title: 'Socios Comerciales',
+    orientation: 'horizontal',
+  },
+}
+
 
 export const VerticalWithoutIcon: Story = {
   parameters: {

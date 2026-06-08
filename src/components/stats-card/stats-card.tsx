@@ -1,5 +1,4 @@
-import type { IconName } from '@/components/icon/icon'
-import Icon from '@/components/icon/icon'
+import Icon, { type IconName } from '@/components/icon/icon'
 import styles from './stats-card.module.css'
 
 const STATS_CARD_SIZE = {
@@ -42,6 +41,10 @@ type StatsCardProps = {
   value: string
   title: string
   icon?: IconName
+  iconSrc?: string
+  iconAlt?: string
+  iconWidth?: string
+  iconHeight?: string
   size?: StatsCardSize
   status?: StatsCardStatus
   orientation?: StatsCardOrientation
@@ -53,6 +56,10 @@ type StatsCardProps = {
 
 function StatsCard({
   icon,
+  iconSrc,
+  iconAlt = '',
+  iconWidth,
+  iconHeight,
   value,
   title,
   size = STATS_CARD_SIZE.MEDIUM,
@@ -78,9 +85,13 @@ function StatsCard({
 
   return (
     <div className={classes}>
-      {icon ? (
+      {icon || iconSrc ? (
         <span className={styles.iconWrap}>
-          <Icon name={icon} className={styles.icon} size={28} />
+          {iconSrc ? (
+            <Icon alt={iconAlt} className={styles.icon} height={iconHeight} src={iconSrc} width={iconWidth} />
+          ) : icon ? (
+            <Icon className={styles.icon} height={iconHeight} name={icon} width={iconWidth} />
+          ) : null}
         </span>
       ) : null}
       <div className={styles.content}>

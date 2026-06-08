@@ -5,6 +5,7 @@
 
   display: flex;
   width: 100%;
+  min-width: 0;
   color: var(--card-text);
   background: var(--card-bg);
   border: 0;
@@ -12,19 +13,16 @@
 }
 
 .small {
-  max-width: 18rem;
   gap: calc(var(--layout-size-small) * 0.75);
   padding: var(--layout-size-small);
 }
 
 .medium {
-  max-width: 24rem;
   gap: var(--layout-size-medium);
   padding: calc(var(--layout-size-medium) * 1.25);
 }
 
 .large {
-  max-width: 34rem;
   gap: var(--layout-size-large);
   padding: calc(var(--layout-size-large) * 1.25);
 }

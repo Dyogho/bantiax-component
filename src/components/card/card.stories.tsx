@@ -27,7 +27,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Card reutilizable con variantes visuales, tamaños responsivos, orientación vertical/horizontal, interacción opcional, estados y tokens limitados de paleta para bg, border y text. Nota: `bg` es un override pensado principalmente para variantes con fondo (`filled` y `outlined-filled`); usarlo en `minimal` u `outlined` rompe intencionalmente la semántica base de esas variantes.'
+          'Card reutilizable neutral con variantes visuales, tamaños responsivos, orientación vertical/horizontal, interacción opcional, estados y tokens limitados de paleta para bg, border y text. Los tamaños controlan spacing interno, no max-width; el contenedor padre o el componente compuesto define restricciones de ancho. Nota: `bg` es un override pensado principalmente para variantes con fondo (`filled` y `outlined-filled`); usarlo en `minimal` u `outlined` rompe intencionalmente la semántica base de esas variantes.'
       },
     },
   },

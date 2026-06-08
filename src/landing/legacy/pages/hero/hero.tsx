@@ -3,10 +3,9 @@ import { heroCards } from '@/landing/legacy/data'
 import HeroCard from '@/components/hero-card/hero-card'
 
 function Hero() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
-  const currentIndex = hoveredIndex ?? activeIndex ?? 0
+  const currentIndex = activeIndex
 
   return (
     <section className="hero">
@@ -31,10 +30,9 @@ function Hero() {
               icon={card.icon}
               key={card.title}
               title={card.title}
-              isActive={index === hoveredIndex || index === activeIndex}
+              isActive={index === activeIndex}
               onClick={() => setActiveIndex(index)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseEnter={() => setActiveIndex(index)}
             />
           ))}
         </div>

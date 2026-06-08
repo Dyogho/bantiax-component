@@ -9,6 +9,7 @@ const ICON_NAME = {
   CLOCK: 'clock',
   KEY: 'key',
   LIGHTBULB: 'lightbulb',
+  BRAIN: 'brain',
   ARROW_RIGHT: 'arrow-right',
   PHONE: 'phone',
   MAIL: 'mail',
@@ -78,6 +79,13 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
       <path d="M10 22h4" />
       <path d="M12 2a7 7 0 0 0-4 12c.7.6 1 1.4 1 2h6c0-.6.3-1.4 1-2a7 7 0 0 0-4-12Z" />
       <path d="M4 4l1.5 1.5M20 4l-1.5 1.5M2 12h2M20 12h2" />
+    </>
+  ),
+  brain: (
+    <>
+      <path d="M9.5 2A3.5 3.5 0 0 0 6 5.5v.2A3.5 3.5 0 0 0 4 12a3.5 3.5 0 0 0 2 6.3v.2A3.5 3.5 0 0 0 9.5 22H12V2Z" />
+      <path d="M14.5 2A3.5 3.5 0 0 1 18 5.5v.2A3.5 3.5 0 0 1 20 12a3.5 3.5 0 0 1-2 6.3v.2a3.5 3.5 0 0 1-3.5 3.5H12V2Z" />
+      <path d="M8 8h4M12 14H8M16 8h-4M12 17h4" />
     </>
   ),
   'arrow-right': <path d="M5 12h14M13 5l7 7-7 7" />,

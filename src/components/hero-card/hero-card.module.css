@@ -1,13 +1,12 @@
 .card {
   position: relative;
-  display: flex;
-  width: 100%;
   height: 9rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   overflow: hidden;
   border-radius: 0;
+  padding: 2.5rem;
   background-clip: padding-box;
   color: inherit;
   text-align: left;
@@ -18,48 +17,44 @@
 
 @media (min-width: 768px) {
   .card {
-    height: 16rem;
+    height: 18.75rem;
   }
 }
 
 .card::before {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   content: '';
   opacity: 0;
-  background: rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(18px) saturate(1.25);
-  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  background: rgba(120, 120, 130, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition: opacity 0.16s ease;
 }
 
-.card:hover,
-.card:focus-visible,
 .active {
-  transform: translateY(-1rem);
+  height: 13rem;
   border: 0;
   border-radius: 0;
-  box-shadow: 0 14px 46px rgba(0, 0, 0, 0.46);
 }
 
-@media (max-width: 767px) {
-  .card:hover,
-  .card:focus-visible,
+@media (min-width: 768px) {
   .active {
-    height: 13rem;
+    height: 18.75rem;
   }
 }
 
-.card:hover::before,
-.card:focus-visible::before,
 .active::before {
   opacity: 1;
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   display: flex;
   width: 100%;
+  min-width: 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.875rem;
@@ -80,24 +75,25 @@
 .line {
   position: relative;
   z-index: 1;
-  width: 48px;
-  height: 1px;
+  width: 4rem;
+  height: 0.125rem;
   background: var(--color-primary);
 }
 
 .title {
   position: relative;
   z-index: 1;
-  color: var(--color-primary);
-  font-size: 1rem;
-  font-weight: 700;
+  max-width: 100%;
+  color: var(--text-main);
+  font-size: 1.125rem;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
   transition: color 0.16s ease;
 }
 
-.card:hover .title,
-.card:focus-visible .title,
 .active .title {
-  color: var(--text-main);
+  color: var(--color-primary);
 }
 
 .description {
@@ -107,15 +103,14 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
   transform: translateY(0.5rem);
   transition: max-height 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
 }
 
-.card:hover .description,
-.card:focus-visible .description,
 .active .description {
   max-height: 7rem;
   opacity: 1;

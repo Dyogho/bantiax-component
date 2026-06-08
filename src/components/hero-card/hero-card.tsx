@@ -24,13 +24,13 @@ function HeroCard({
   onMouseEnter,
   onMouseLeave,
 }: HeroCardProps) {
-  const interaction = onClick ? 'active' : 'none'
+  const interaction = 'none'
   const status = isActive ? 'select' : 'default'
   const classes = [styles.card, isActive ? styles.active : ''].filter(Boolean).join(' ')
   const content = (
     <span className={styles.content}>
       <span className={styles.iconWrap}>
-        <Icon name={icon} className={styles.icon} size={48} />
+        <Icon name={icon} className={styles.icon} size="4rem" />
       </span>
       <span className={styles.line} aria-hidden="true" />
       <span className={styles.title}>{title}</span>
@@ -44,7 +44,6 @@ function HeroCard({
         as="button"
         aria-expanded={isActive}
         className={classes}
-        border={isActive ? 'primary' : undefined}
         interaction={interaction}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
@@ -63,7 +62,6 @@ function HeroCard({
     <Card
       as="article"
       className={classes}
-      border={isActive ? 'primary' : undefined}
       interaction={interaction}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

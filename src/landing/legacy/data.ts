@@ -89,22 +89,22 @@ export const headerData = {
 // Hero section
 export const heroCards: HeroCardData[] = [
   {
-    title: 'Banca e Infraestructura',
-    desc: 'Creamos infraestructura financiera digital preparada para operar, escalar y proteger cada etapa del negocio.',
-    icon: 'briefcase',
-    imageSrc: '/image1.png',
+    title: 'Fintech llave en mano',
+    desc: 'Con tu nueva línea de negocio: incrementas tu rentabilidad, blindas tu ecosistema, generas fidelidad, tienes el control total de tu cadena de valor y obtienes un multiplicador de otros beneficios.',
+    icon: 'key',
+    imageSrc: '/image1.jpg',
   },
   {
-    title: 'Soluciones Automatizadas',
-    desc: 'Automatizamos evaluación, monitoreo, cobranza y operación con tecnología propia y flujos inteligentes.',
-    icon: 'cpu',
-    imageSrc: '/image2.png',
+    title: 'Soluciones Tecnológicas',
+    desc: 'Transformamos el Riesgo en Rentabilidad. Minimizamos el Riesgo, mejoramos la Recuperación y generamos valor; con la mejor tecnología del mundo.',
+    icon: 'lightbulb',
+    imageSrc: '/image2.jpg',
   },
   {
     title: 'Consultoría Estratégica',
-    desc: 'Acompañamos el diseño, lanzamiento y optimización de modelos Fintech con foco en rentabilidad.',
-    icon: 'trending-up',
-    imageSrc: '/image3.png',
+    desc: 'Implementando Fintech end to end. Te guiaremos en la transformación de tu empresa hacia una potencia de financiamiento rentable e inclusiva.',
+    icon: 'brain',
+    imageSrc: '/image3.jpg',
   },
 ]
 
@@ -194,10 +194,10 @@ export const turnkeyBenefits = [
 ]
 
 export const mockupOptions: MockupOptionData[] = [
-  { label: 'Solo con DNI', mockup: { src: '/image1.png' } },
-  { label: 'Aprobación hasta en 60 seg', mockup: { src: '/image2.png' } },
-  { label: '60% de clientes aprobado', mockup: { src: '/image3.png' } },
-  { label: 'Mora baja', mockup: { src: '/image1.png' } },
+  { label: 'Solo con DNI', mockup: { src: '/image1.jpg' } },
+  { label: 'Aprobación hasta en 60 seg', mockup: { src: '/image2.jpg' } },
+  { label: '60% de clientes aprobado', mockup: { src: '/image3.jpg' } },
+  { label: 'Mora baja', mockup: { src: '/image1.jpg' } },
 ]
 
 // Tech solutions section
@@ -283,8 +283,8 @@ export const services: IconCard[] = [
 ]
 
 export const servicesHighlightImages: ServicesHighlightImage[] = [
-  { src: '/image2.png', alt: 'Equipo Bantiax colaborando' },
-  { src: '/image3.png', alt: 'Planeación estratégica Bantiax' },
+  { src: '/image2.jpg', alt: 'Equipo Bantiax colaborando' },
+  { src: '/image3.jpg', alt: 'Planeación estratégica Bantiax' },
 ]
 
 export const servicesHighlightCards = [

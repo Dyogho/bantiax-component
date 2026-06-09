@@ -7,8 +7,7 @@ function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
-            <div className="footer-logo-badge">{footerData.badge}</div>
-            {footerData.brand}
+            <img alt={footerData.brand} src="https://doinperu.com/bantiax/wp-content/uploads/2026/06/Bantiax_logo-300x141.png" />
           </div>
           <ul className="footer-contact-list">
             {footerData.contacts.map((contact) => (

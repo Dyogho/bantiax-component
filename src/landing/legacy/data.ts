@@ -286,9 +286,9 @@ export const footerData = {
   brand: 'BANTIAX',
   badge: 'B',
   contacts: [
-    { icon: 'phone' as IconName, text: '+51 984 000 000' },
-    { icon: 'mail' as IconName, text: 'contacto@bantiax.com' },
-    { icon: 'map-pin' as IconName, text: 'Lima, Perú' },
+    { icon: 'phone' as IconName, text: '+511 995 959 524' },
+    { icon: 'mail' as IconName, text: 'comercial@bantiax.com' },
+    { icon: 'map-pin' as IconName, text: 'Av. Ejercito 1258, Ofic 1301, San Isidro, Lima.' },
   ] satisfies FooterContact[],
   socials: [
     { label: 'LinkedIn', href: '#top', text: 'in' },

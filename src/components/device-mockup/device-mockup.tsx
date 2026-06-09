@@ -20,10 +20,25 @@ function DeviceMockup({
 
   return (
     <figure className={containerClasses}>
-      {caption ? <figcaption className={styles.title}>{caption}</figcaption> : null}
-      <div className={styles.phone}>
-        <div className={styles.notch} aria-hidden="true" />
-        <img className={imageClasses} src={src} alt={alt} {...imageProps} />
+      {caption ? <figcaption className={styles.caption}>{caption}</figcaption> : null}
+      
+      <div className={styles.phoneOuter}>
+        {/* Botones laterales del dispositivo */}
+        <div className={styles.volumeUp} aria-hidden="true" />
+        <div className={styles.volumeDown} aria-hidden="true" />
+        <div className={styles.power} aria-hidden="true" />
+
+        <div className={styles.phoneInner}>
+          <div className={styles.notch} aria-hidden="true">
+            {/* Lente de la cámara frontal */}
+            <div className={styles.camera} />
+          </div>
+          
+          <img className={imageClasses} src={src} alt={alt} {...imageProps} />
+          
+          {/* Reflejo simulado en el cristal */}
+          <div className={styles.glare} aria-hidden="true" />
+        </div>
       </div>
     </figure>
   )

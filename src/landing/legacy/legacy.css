@@ -706,7 +706,7 @@
 }
 
 .risk-summary-card {
-  max-width: 36rem;
+  max-width: fit-content;
   align-items: center;
   justify-content: center;
   margin: 3.125rem auto 0.625rem;

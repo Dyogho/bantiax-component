@@ -1,41 +1,102 @@
 .deviceMockup {
   display: grid;
   margin: 0;
-  width: min(100%, 20rem);
-  gap: 1rem;
+  width: min(100%, 22rem); /* Ligeramente más ancho para acomodar el celular */
+  gap: 1.5rem;
+  justify-items: center;
 }
 
-.title {
+.caption {
   margin: 0;
-  color: var(--text-main);
+  color: var(--text-main, #333);
   font-size: 1.25rem;
   font-weight: 800;
   line-height: 1.1;
   text-align: center;
 }
 
-.phone {
+/* Carcasa externa del celular */
+.phoneOuter {
   position: relative;
   width: min(100%, 18.125rem);
   aspect-ratio: 29 / 60;
   margin: 0 auto;
-  overflow: hidden;
-  border: 0.625rem solid var(--color-dark-base);
-  border-radius: 2rem;
-  background: var(--color-dark-base);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 2.5rem;
+  background: var(--color-dark-base, #111);
+  /* Sombra exterior y simulador de borde metálico */
+  box-shadow: 
+    0 0 0 2px #444, 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 0.5rem; /* Grosor del bisel */
+  box-sizing: border-box;
 }
 
+/* Botones laterales físicos */
+.volumeUp, .volumeDown, .power {
+  position: absolute;
+  background: var(--color-dark-base, #111);
+  width: 4px;
+}
+
+.volumeUp {
+  top: 25%;
+  left: -4px;
+  height: 3rem;
+  border-radius: 4px 0 0 4px;
+}
+
+.volumeDown {
+  top: calc(25% + 3.5rem);
+  left: -4px;
+  height: 3rem;
+  border-radius: 4px 0 0 4px;
+}
+
+.power {
+  top: 30%;
+  right: -4px;
+  height: 4.5rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Contenedor de la pantalla (área visible) */
+.phoneInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Notch moderno (Estilo píldora) */
 .notch {
   position: absolute;
   top: 0.5rem;
   left: 50%;
-  z-index: 2;
-  width: 4.5rem;
-  height: 1.15rem;
+  z-index: 10;
+  width: 35%;
+  height: 1.5rem;
   border-radius: 9999px;
-  background: var(--color-dark-base);
+  background: #000;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  box-shadow: inset 0 -1px 2px rgba(255, 255, 255, 0.15); /* Ligero relieve */
+}
+
+/* Lente de la cámara dentro del notch */
+.camera {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #0a0a1a;
+  box-shadow: 
+    inset -1px -1px 2px rgba(255, 255, 255, 0.2),
+    0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 .image {
@@ -43,4 +104,22 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
+}
+
+/* Brillo del cristal protector */
+.glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  pointer-events: none; /* Impide que el brillo bloquee clics o interacciones con la imagen */
+  z-index: 5;
 }

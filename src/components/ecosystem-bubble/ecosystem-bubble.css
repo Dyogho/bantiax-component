@@ -1,0 +1,366 @@
+.ecosystem-bubble-story {
+    min-width: min(90vw, 42rem);
+    padding: 3rem 2rem;
+    background: var(--bg-dark, #050505);
+    overflow: hidden;
+}
+
+.bubble-component {
+    --ecosystem-cyan: #00e5ff;
+    --ecosystem-cyan-dark: #00b0ff;
+    --ecosystem-blue-dark: #0072ce;
+    --ecosystem-white: #ffffff;
+    --ecosystem-line: rgba(0, 229, 255, 0.2);
+
+    position: relative;
+    width: min(100%, 36rem);
+    min-width: 20rem;
+    min-height: 32rem;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+
+.bubble-component .transparent-bg {
+    background-color: transparent;
+}
+
+.bubble-component .main-icon-size {
+    width: 22px;
+    height: 22px;
+}
+
+.bubble-component .aux-icon-size {
+    position: relative;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-component .text {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.bubble-component .text-align--center {
+    text-align: center;
+}
+
+.bubble-component .text-color--gp--white {
+    color: var(--ecosystem-white);
+}
+
+.bubble-component .text-display--block {
+    display: block;
+}
+
+.bubble-component .text-size--caption02 {
+    font-size: 0.85rem;
+}
+
+.bubble-component .text-gp--fontype-light {
+    font-weight: 500;
+}
+
+/* --- CONTENEDOR DE ANIMACIÓN --- */
+.bubble-component .anim-container {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* --- ONDAS CIRCULARES: única línea animada visible --- */
+.bubble-component .wave {
+    display: block;
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    border: 0.5px solid rgba(0, 229, 255, 0.26);
+    border-radius: 50%;
+    opacity: 0;
+    animation: ecosystem-wave 12s ease-out infinite;
+}
+
+.bubble-component .wave:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.bubble-component .wave:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.bubble-component .wave:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.bubble-component .wave:nth-child(5) {
+    animation-delay: 8s;
+}
+
+.bubble-component .wave:nth-child(6) {
+    animation-delay: 10s;
+}
+
+/* --- LÍNEAS EXPANSIVAS --- */
+.bubble-component .line-animation {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 1px;
+    height: 1px;
+}
+
+.bubble-component .expanding-line {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15rem;
+    height: 0.5px;
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.24), transparent);
+    opacity: 0;
+    transform: rotate(var(--line-angle)) scaleX(0);
+    transform-origin: left center;
+    animation: ecosystem-line-expand 3.6s ease-out infinite;
+}
+
+.bubble-component .expanding-line:nth-child(2n) {
+    animation-delay: 0.45s;
+}
+
+.bubble-component .expanding-line:nth-child(3n) {
+    animation-delay: 0.9s;
+}
+
+.bubble-component .expanding-line:nth-child(4n) {
+    animation-delay: 1.35s;
+}
+
+/* Conectores circulares de fondo */
+.bubble-component .bubble-connector {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 24rem;
+    height: 24rem;
+    border: 0;
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.bubble-component .inner-connector {
+    width: 16rem;
+    height: 16rem;
+    border-color: transparent;
+}
+
+.bubble-component .main-bubble,
+.bubble-component .auxiliary-bubble {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+}
+
+.bubble-component .main-bubble {
+    width: 11rem;
+    height: 11rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bubble-component .content-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+/* Gráfico dinámico: soporta cualquier cantidad de secciones desde ecosystemData */
+.bubble-component .main-bubble .pie-chart-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: #000;
+    background-image: var(--pie-chart-gradient);
+    box-shadow: 0 0 2rem rgba(0, 229, 255, 0.15);
+}
+
+.bubble-component .main-bubble .inner-bubble {
+    position: absolute;
+    inset: 0.5rem;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+}
+
+.bubble-component .section-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    width: 4.4rem;
+    color: var(--ecosystem-white);
+    font-size: clamp(0.58rem, 1vw, 0.72rem);
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+    text-shadow: 0 1px 0.45rem rgba(0, 0, 0, 0.45);
+    transform: translate(calc(-50% + var(--section-label-x)), calc(-50% + var(--section-label-y)));
+}
+
+.bubble-component .section-label img {
+    width: 22px;
+    height: 22px;
+}
+
+.bubble-component .auxiliary-bubble {
+    --bubble-x: 0rem;
+    --bubble-y: 0rem;
+    left: 50%;
+    top: 50%;
+    width: 4rem;
+    height: 4rem;
+    transform: translate(calc(-50% + var(--bubble-x)), calc(-50% + var(--bubble-y))) scale(1);
+    transition: transform 180ms ease;
+    z-index: 10;
+}
+
+.bubble-component .auxiliary-bubble:hover,
+.bubble-component .auxiliary-bubble:focus-within {
+    transform: translate(calc(-50% + var(--bubble-x)), calc(-50% + var(--bubble-y))) scale(1.1);
+}
+
+/* Diseño original: burbuja blanca, icono azul, aro y halo exterior */
+.bubble-component .auxiliary-bubble .bubble {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    isolation: isolate;
+    background: var(--ecosystem-white);
+    box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.2);
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.bubble-component .auxiliary-bubble .outer-bubble {
+    position: absolute;
+    inset: -0.45rem;
+    z-index: -1;
+    border-radius: inherit;
+    background: transparent;
+    pointer-events: none;
+}
+
+.bubble-component .auxiliary-bubble .border {
+    position: absolute;
+    inset: -0.45rem;
+    z-index: 0;
+    border: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.bubble-component .nextLinkOverBox {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    padding: 0;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+.bubble-component .icon-hover {
+    display: none;
+}
+
+.bubble-component .auxiliary-bubble:hover .bubble,
+.bubble-component .auxiliary-bubble:focus-within .bubble {
+    background: var(--ecosystem-blue-dark);
+    box-shadow: 0 0.9rem 2rem rgba(0, 114, 206, 0.42);
+}
+
+.bubble-component .auxiliary-bubble:hover .icon-nohover,
+.bubble-component .auxiliary-bubble:focus-within .icon-nohover {
+    display: none;
+}
+
+.bubble-component .auxiliary-bubble:hover .icon-hover,
+.bubble-component .auxiliary-bubble:focus-within .icon-hover {
+    display: grid;
+}
+
+.bubble-component .text-container {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    width: max-content;
+    max-width: 8rem;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.bubble-component .bubble-text {
+    text-shadow: 0 1px 0.5rem rgba(0, 0, 0, 0.8);
+}
+
+/* --- KEYFRAMES --- */
+@keyframes ecosystem-wave {
+    0% {
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4.4);
+    }
+}
+
+@keyframes ecosystem-line-expand {
+    0% {
+        opacity: 0;
+        transform: rotate(var(--line-angle)) scaleX(0);
+    }
+    15% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(var(--line-angle)) scaleX(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bubble-component .wave,
+    .bubble-component .expanding-line,
+    .bubble-component .auxiliary-bubble,
+    .bubble-component .auxiliary-bubble .bubble {
+        animation: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 42rem) {
+    .bubble-component {
+        min-height: 26rem;
+        transform: scale(0.8);
+        transform-origin: center top;
+    }
+}

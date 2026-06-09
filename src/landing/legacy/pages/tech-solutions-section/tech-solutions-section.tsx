@@ -5,20 +5,21 @@ import { techSolutionCards, techSolutionsSectionData } from '@/landing/legacy/da
 
 function TechSolutionsSection() {
   return (
-    <section id={techSolutionsSectionData.id} className="risk-section">
+    <section id={techSolutionsSectionData.id} className="risk-section tech-solutions-section">
       <div className="section-heading-left">
         <InfoCard
-          className="highlight-text"
+          className="tech-solutions-eyebrow"
           icon={techSolutionsSectionData.eyebrowIcon}
+          iconColor="primary"
           size={INFO_CARD_SIZE.SMALL}
           title={techSolutionsSectionData.eyebrowTitle}
-          titleColor="primary"
+          titleColor="muted"
         />
-        <h2 className="section-title section-title-primary">{techSolutionsSectionData.title}</h2>
-        <p className="section-description section-description-left">{techSolutionsSectionData.description}</p>
+        <h2 className="tech-solutions-title">{techSolutionsSectionData.title}</h2>
+        <p className="tech-solutions-subtitle">{techSolutionsSectionData.description}</p>
       </div>
 
-      <div className="risk-grid">
+      <div className="risk-grid tech-solutions-grid">
         {techSolutionCards.map((card) => (
           <SolutionCard description={card.desc} icon={card.icon} key={card.title} title={card.title} />
         ))}

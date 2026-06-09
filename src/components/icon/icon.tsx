@@ -23,6 +23,7 @@ const ICON_NAME = {
   CHECK_CIRCLE: 'check-circle',
   LAYERS: 'layers',
   SMARTPHONE: 'smartphone',
+  DEVICE_DESKTOP: 'device-desktop',
   ZAP: 'zap',
   BAR_CHART: 'bar-chart',
   LOCK: 'lock',
@@ -141,6 +142,12 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
     <>
       <rect x="7" y="2" width="10" height="20" rx="2" />
       <path d="M11 18h2" />
+    </>
+  ),
+  'device-desktop': (
+    <>
+      <rect x="3" y="4" width="18" height="12" rx="2" />
+      <path d="M8 20h8M12 16v4" />
     </>
   ),
   zap: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8Z" />,

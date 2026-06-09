@@ -579,8 +579,57 @@
   text-align: left;
 }
 
+.tech-solutions-section {
+  width: 100%;
+  max-width: 75rem;
+  min-height: 908.433px;
+  margin: 5rem auto 2.5rem;
+  padding: 0 1.25rem;
+}
+
 .section-heading-left {
   max-width: 42rem;
+}
+
+.tech-solutions-section .section-heading-left {
+  width: 100%;
+  max-width: none;
+}
+
+.tech-solutions-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.tech-solutions-title {
+  width: 100%;
+  min-height: 2.8875rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+  font-size: clamp(1.625rem, 3.5vw, 2.625rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tech-solutions-eyebrow svg {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+}
+
+.tech-solutions-subtitle {
+  width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 .section-title {
@@ -618,6 +667,14 @@
   padding-top: 3rem;
 }
 
+.tech-solutions-grid {
+  width: 100%;
+  max-width: 72.5rem;
+  min-height: 664.033px;
+  align-items: start;
+  padding-top: 3.4375rem;
+}
+
 .risk-card {
   position: relative;
   padding: 1.5rem;
@@ -652,17 +709,20 @@
   max-width: 36rem;
   align-items: center;
   justify-content: center;
-  margin: 4rem auto 0;
+  margin: 3.125rem auto 0.625rem;
+  padding: 1.5rem 2rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 1rem;
   background: transparent;
   text-align: center;
 }
 
 .risk-summary-card p {
   margin: 0;
-  color: var(--text-main);
-  font-size: 1.25rem;
+  color: #fff;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
 .icon-wrapper {
@@ -706,7 +766,7 @@
 }
 
 .services-section {
-  border-top: 1px solid var(--border-color);
+  border-top: 0;
 }
 
 .services-heading {

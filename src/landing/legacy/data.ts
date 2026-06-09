@@ -211,43 +211,15 @@ export const techSolutionsSectionData = {
   eyebrowTitle: 'Soluciones Tecnológicas Financieras',
   eyebrowIcon: 'lightbulb' as IconName,
   title: 'Transformamos el Riesgo en Rentabilidad',
-  description:
-    'Implementamos capas de inteligencia tecnológica para blindar cada etapa crítica del ciclo de crédito de tu organización.',
+  description: 'Minimizamos el riesgo, mejoramos la recuperación, generamos valor e inclusión',
   summary: 'Somos creadores de tecnología e infraestructura propia y escalable.',
 }
 
-export const techSolutionCards: IconCard[] = [
-  {
-    title: 'Plataforma Inteligente de Crédito',
-    desc: 'Automatiza y evalúa solicitudes en segundos reduciendo drásticamente riesgos operativos.',
-    icon: 'smartphone',
-  },
-  {
-    title: 'Modelos de Inteligencia Artificial',
-    desc: 'Predicciones precisas basadas en comportamiento transaccional e historiales.',
-    icon: 'zap',
-  },
-  {
-    title: 'Monitoreo Continuo de Cartera',
-    desc: 'Alertas tempranas y analítica predictiva de salud financiera en tu ecosistema.',
-    icon: 'bar-chart',
-  },
-  {
-    title: 'Plataforma de Cobranza Digital',
-    desc: 'Estrategias amigables y eficientes para optimizar cada etapa de recuperación.',
-    icon: 'layers',
-  },
-  {
-    title: 'Validación de Identidad y Fraude',
-    desc: 'Seguridad biométrica avanzada y prevención de riesgos críticos de suplantación.',
-    icon: 'lock',
-  },
-  {
-    title: 'Plan de Mitigación Personalizado',
-    desc: 'Consultoría de alto nivel diseñada exactamente a la medida de tu industria.',
-    icon: 'users',
-  },
-]
+export const techSolutionCards: IconCard[] = Array.from({ length: 6 }, () => ({
+  title: 'Plataforma de Administración de Créditos',
+  desc: 'Tendrás la gestión integral de créditos, desde su origen hasta la cobranza y también la automatización de tus procesos; con esta plataforma poderosa e intuitiva.',
+  icon: 'device-desktop' as IconName,
+}))
 
 // Services section
 export const servicesSectionData = {

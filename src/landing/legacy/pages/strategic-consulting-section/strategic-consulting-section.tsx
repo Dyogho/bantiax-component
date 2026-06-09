@@ -8,13 +8,14 @@ function StrategicConsultingSection() {
     <section className="services-section services-highlight-section" aria-labelledby="services-highlight-title">
       <article className="services-highlight-card">
         <div className="services-highlight-images">
-          {servicesHighlightImages.map((image) => (
-            <img alt={image.alt} key={image.src} src={image.src} />
+          {servicesHighlightImages.map((image, index) => (
+            <img alt={image.alt} className={`services-highlight-image-${index + 1}`} key={image.src} src={image.src} />
           ))}
         </div>
 
         <div className="services-highlight-content">
           <InfoCard
+            className="services-highlight-eyebrow"
             icon={servicesSectionData.highlight.icon}
             iconColor="main"
             size={INFO_CARD_SIZE.LARGE}

@@ -227,7 +227,7 @@ export const servicesSectionData = {
   title: 'Nuestros Servicios',
   highlight: {
     title: 'CONSULTORÍA ESTRATÉGICA',
-    icon: 'briefcase' as IconName,
+    icon: 'brain' as IconName,
     heading: 'Transformamos empresas en potencias de financiamiento',
     description: 'Somos expertos creando y gestionando',
     cta: {
@@ -260,24 +260,24 @@ export const services: IconCard[] = [
 ]
 
 export const servicesHighlightImages: ServicesHighlightImage[] = [
-  { src: '/image2.jpg', alt: 'Equipo Bantiax colaborando' },
-  { src: '/image3.jpg', alt: 'Planeación estratégica Bantiax' },
+  { src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80', alt: 'Equipo Bantiax colaborando' },
+  { src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80', alt: 'Planeación estratégica Bantiax' },
 ]
 
 export const servicesHighlightCards = [
   {
     title: 'Creadores, innovadores y estrategas.',
     description: 'Creamos Fintech desde cero, con tecnología propia, generando ventajas competitivas.',
-    icon: 'lightbulb' as IconName,
+    icon: 'brain' as IconName,
   },
   {
     title: 'Gestores de potencias de financiamiento',
     description: 'Transformamos el riesgo en récords de rentabilidad.',
-    icon: 'trending-up' as IconName,
+    icon: 'chart-line' as IconName,
   },
   {
     title: 'Implementación ágil y cero fricción con el punto de venta',
-    icon: 'clock' as IconName,
+    icon: 'bolt' as IconName,
   },
 ]
 

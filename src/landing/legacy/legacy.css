@@ -480,6 +480,8 @@
   display: grid;
   grid-area: benefits;
   gap: 0.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .multiplier-benefit-card {

@@ -10,6 +10,8 @@ const ICON_NAME = {
   KEY: 'key',
   LIGHTBULB: 'lightbulb',
   BRAIN: 'brain',
+  CHART_LINE: 'chart-line',
+  BOLT: 'bolt',
   ARROW_RIGHT: 'arrow-right',
   PHONE: 'phone',
   MAIL: 'mail',
@@ -94,6 +96,8 @@ const ICON_PATHS: Record<IconName, ReactNode> = {
       <path d="M8 8h4M12 14H8M16 8h-4M12 17h4" />
     </>
   ),
+  'chart-line': <path d="M3 17l6-6 4 4 8-8M14 7h7v7M3 21h18" />,
+  bolt: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8Z" />,
   'arrow-right': <path d="M5 12h14M13 5l7 7-7 7" />,
   phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.47-1.13a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z" />,
   mail: <path d="M4 4h16v16H4zM4 6l8 7 8-7" />,

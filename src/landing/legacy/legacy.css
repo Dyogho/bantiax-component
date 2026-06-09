@@ -769,18 +769,57 @@
   border-top: 0;
 }
 
+.services-overview-section {
+  position: static;
+  width: 100%;
+  max-width: 75rem;
+  min-height: 247.6px;
+  margin: 0 auto;
+  padding: 2rem 2rem 2.5rem;
+}
+
 .services-heading {
-  margin-bottom: 4rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.services-title {
+  width: 100%;
+  min-height: 5.475rem;
+  margin: 0 0 2rem;
+  padding-bottom: 0.375rem;
+  color: var(--color-primary);
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 
 .services-info-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 2rem;
   max-width: 72rem;
   margin: 0 auto;
+}
+
+.services-info-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.services-info-card svg {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+.services-info-card > div:last-child > p:first-child {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: pre-line;
 }
 
 .service-simple-card {
@@ -896,7 +935,7 @@
   margin-top: 1.5rem;
 }
 
-.services-title {
+.services-highlight-title {
   margin: 0.5rem 0 1rem;
   font-size: 1.75rem;
   font-weight: 700;
@@ -1070,6 +1109,10 @@
 
   .risk-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-info-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer-grid {

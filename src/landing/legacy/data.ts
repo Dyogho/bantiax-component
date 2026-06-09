@@ -224,7 +224,7 @@ export const techSolutionCards: IconCard[] = Array.from({ length: 6 }, () => ({
 // Services section
 export const servicesSectionData = {
   id: 'servicios',
-  title: 'NUESTROS SERVICIOS',
+  title: 'Nuestros Servicios',
   highlight: {
     title: 'CONSULTORÍA ESTRATÉGICA',
     icon: 'briefcase' as IconName,
@@ -243,19 +243,19 @@ export const servicesSectionData = {
 
 export const services: IconCard[] = [
   {
-    title: 'Banca e Infraestructura',
+    title: 'Fintech\nLlave en Mano',
     desc: 'Arquitectura financiera preparada para operar productos digitales con seguridad, cumplimiento y capacidad de escala.',
-    icon: 'briefcase',
+    icon: 'key',
   },
   {
-    title: 'Soluciones Automatizadas',
+    title: 'Soluciones\nTecnológicas Financieras',
     desc: 'Flujos inteligentes para evaluación, monitoreo, cobranza y gestión operativa en tiempo real.',
-    icon: 'cpu',
+    icon: 'lightbulb',
   },
   {
-    title: 'Consultoría Estratégica',
+    title: 'Consultoría\nEstratégica',
     desc: 'Acompañamiento experto para diseñar, lanzar y optimizar verticales de crédito y modelos Fintech.',
-    icon: 'trending-up',
+    icon: 'brain',
   },
 ]
 

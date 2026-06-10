@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import ScrollSpyMenu from '@/components/scroll-spy-menu/scroll-spy-menu'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const demoSections = [
   { id: 'onboarding', label: 'Onboarding' },

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import SolutionCard from '@/components/solution-card/solution-card'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const solutionIconOptions = ['smartphone', 'zap', 'bar-chart', 'layers', 'lock', 'users']
 

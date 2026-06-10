@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CardOrientation } from '@/components/card/card'
 import HeroCard from '@/components/hero-card/hero-card'
 import type { IconName } from '@/components/icon/icon'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 type HeroCardStoryProps = {
   icon: IconName

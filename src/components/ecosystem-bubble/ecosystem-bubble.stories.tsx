@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import EcosystemBubble from '@/components/ecosystem-bubble/ecosystem-bubble'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const meta = {
   title: 'Landing/EcosystemBubble',

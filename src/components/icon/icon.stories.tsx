@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Icon, { ICON_NAME } from '@/components/icon/icon'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const CLOUD_ICON_URL = 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/react.svg'
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import BrandLogo from '@/components/brand-logo/brand-logo'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const meta = {
   title: 'Landing/Brand/BrandLogo',

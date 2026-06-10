@@ -1,11 +1,7 @@
-import LegacyLanding from '@/landing/legacy/LegacyLanding'
-import LandingV2 from '@/landing/v2/LandingV2'
+import Landing from '@/landing/Landing'
 
 function App() {
-  const landingVersion = new URLSearchParams(window.location.search).get('landing')
-  const landingPath = window.location.pathname.replace(/^\//, '')
-
-  return landingVersion === 'v2' || landingPath === 'v2' ? <LandingV2 /> : <LegacyLanding />
+  return <Landing />
 }
 
 export default App

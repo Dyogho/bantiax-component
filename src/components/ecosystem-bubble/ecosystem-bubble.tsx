@@ -1,42 +1,10 @@
 import React from 'react';
+import Icon from '@/components/icon/icon';
+import { ecosystemData } from '@/landing/pages/solutions-section/data';
 import './ecosystem-bubble.css';
 
 const sectionColors = ['#00b0ff', '#00e5ff', '#0081cb', '#00f3ff', '#0072ce'];
 
-const ecosystemData = [
-    {
-        id: 'clients',
-        label: 'Clientes',
-        icon: 'autentificacion-ok-m/16',
-        // Sección izquierda (de 240 a 360 grados)
-        bubbles: [
-            { id: 'admin-creditos', label: 'Plataforma Admin de Créditos', icon: 'tv-contenidos-audiovisuales-m/16' },
-            { id: 'onboarding', label: 'Onboarding', icon: 'sol-m/48' }
-        ]
-    },
-    {
-        id: 'core',
-        label: 'Core',
-        icon: 'conexiones-m/16',
-        // Sección inferior (de 120 a 240 grados)
-        bubbles: [
-            { id: 'bloqueo-celulares', label: 'Bloqueo de celulares', icon: 'moviles-y-dispositivos-m/16' },
-            { id: 'score-riesgos', label: 'Score de Riesgos Celulares', icon: 'conexiones-m/16' },
-            { id: 'motor-decision', label: 'Motor de Decisión de Riesgos', icon: 'mando-juegos-m/16' },
-        ]
-    },
-    {
-        id: 'risk',
-        label: 'Riesgo',
-        icon: 'escudo-seguridad-m/16',
-        // Sección derecha (de 0 a 120 grados)
-        bubbles: [
-            { id: 'validacion-identidad', label: 'Validación de identidad', icon: 'autentificacion-ok-m/16' },
-            { id: 'seguros-celulares', label: 'Seguros para celulares', icon: 'escudo-seguridad-m/16' },
-        ]
-    },
-
-];
 
 export default function EcosystemBubble() {
     const radius = 12; // Radio ampliado un poco para que respiren las burbujas
@@ -145,14 +113,22 @@ export default function EcosystemBubble() {
                             <div className="bubble">
                                 <div className="outer-bubble"></div>
                                 <div className="border"></div>
-                                <div className="svg-layout-size aux-icon-size icon-nohover transparent-bg">
-                                    {/* El ícono se carga en azul por defecto */}
-                                    <img src={`https://ssr.col.movistar.es/api/v1/get-glyph/${item.icon}/movistarBlue`} width="20" height="20" alt="" loading="lazy" />
-                                </div>
-                                <div className="svg-layout-size aux-icon-size icon-hover transparent-bg">
-                                    {/* El ícono cambia a blanco en hover */}
-                                    <img src={`https://ssr.col.movistar.es/api/v1/get-glyph/${item.icon}/white`} width="20" height="20" alt="" loading="lazy" />
-                                </div>
+                                {!item.icon.includes('/') ? (
+                                    <div className={`svg-layout-size aux-icon-size transparent-bg ${item.id === 'validacion-identidad' ? 'validation-icon-container' : ''}`}>
+                                        <Icon name={item.icon as any} size={item.id === 'validacion-identidad' ? 38 : 20} style={{ color: 'currentColor' }} />
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div className="svg-layout-size aux-icon-size icon-nohover transparent-bg">
+                                            {/* El ícono se carga en negro por defecto */}
+                                            <img src={`https://ssr.col.movistar.es/api/v1/get-glyph/${item.icon}/black`} width="20" height="20" alt="" loading="lazy" />
+                                        </div>
+                                        <div className="svg-layout-size aux-icon-size icon-hover transparent-bg">
+                                            {/* El ícono cambia a blanco en hover */}
+                                            <img src={`https://ssr.col.movistar.es/api/v1/get-glyph/${item.icon}/white`} width="20" height="20" alt="" loading="lazy" />
+                                        </div>
+                                    </>
+                                )}
                             </div>
 
                             <div className="text-container">

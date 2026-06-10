@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Header from '@/components/header/header'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const meta = {
   title: 'Landing/Header',

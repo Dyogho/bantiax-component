@@ -9,7 +9,7 @@ import Card, {
   CARD_TEXT,
   CARD_VARIANT,
 } from '@/components/card/card'
-import '@/landing/legacy/legacy.css'
+import '@/landing/landing.css'
 
 const demoContent = (
   <>

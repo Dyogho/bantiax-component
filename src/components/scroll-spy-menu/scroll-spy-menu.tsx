@@ -51,11 +51,12 @@ const useScrollSpy = (sectionIds: string[], offset = 110) => {
       if (sections.length === 0) return;
 
       const isAtPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
       const currentSection = isAtPageEnd
         ? sections[sections.length - 1]
         : sections.reduce((current, section) => {
-            return section.top <= checkpoint ? section : current;
-          }, sections[0]);
+          return section.top <= checkpoint ? section : current;
+        }, sections[0]);
 
       setActiveId((currentId) => (currentId === currentSection.id ? currentId : currentSection.id));
     };

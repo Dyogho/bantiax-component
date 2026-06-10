@@ -1,22 +1,25 @@
 .scroll-spy-menu {
   position: sticky;
-  top: 1rem;
+  top: 0;
   z-index: 30;
-  width: min(100%, 68rem);
-  margin: 0 auto;
-  padding: 0.4rem;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.72);
-  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-primary, #00f3ff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .scroll-spy-menu__track {
   display: flex;
-  gap: 0.35rem;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: stretch;
   overflow-x: auto;
   scrollbar-width: none;
+  padding-inline: clamp(1rem, 3vw, 4rem);
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
 }
 
 .scroll-spy-menu__track::-webkit-scrollbar {
@@ -24,32 +27,45 @@
 }
 
 .scroll-spy-menu__item {
-  flex: 0 0 auto;
-  min-height: 2.5rem;
-  padding: 0.65rem 1rem;
+  position: relative;
+  flex: 1 1 0px;
+  min-width: 8rem;
+  max-width: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.5rem 0.9rem 0.5rem;
   border: 0;
-  border-radius: 999px;
-  color: var(--text-muted, #94a3b8);
+  border-radius: 0;
+  color: #000000;
   background: transparent;
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.2;
+  white-space: normal;
+  text-align: center;
   cursor: pointer;
-  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
-.scroll-spy-menu__item:hover,
+.scroll-spy-menu__item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 160ms ease;
+}
+
+/* No hover effect */
 .scroll-spy-menu__item:focus-visible {
-  color: var(--text-main, #ffffff);
-  background: rgba(255, 255, 255, 0.08);
-  outline: none;
+  outline: 2px solid rgba(0, 0, 0, 0.3);
+  outline-offset: 2px;
 }
 
-.scroll-spy-menu__item[aria-current='true'] {
-  color: var(--text-black, #000000);
-  background: var(--color-primary, #00f3ff);
-  box-shadow: 0 0 1.25rem rgba(0, 243, 255, 0.28);
+.scroll-spy-menu__item[aria-current='true']::after {
+  background: #000000;
 }
 
 .scroll-spy-story {
@@ -94,15 +110,15 @@
 }
 
 @media (max-width: 48rem) {
-  .scroll-spy-menu {
-    top: 0.75rem;
-    width: calc(100vw - 1.5rem);
-    border-radius: 1.25rem;
+  .scroll-spy-menu__item {
+    padding-top: 0.6rem;
+    padding-bottom: 0.8rem;
+    /* Ajuste proporcional en móviles */
+    font-size: 0.8rem;
   }
 
-  .scroll-spy-menu__item {
-    min-height: 2.35rem;
-    padding: 0.6rem 0.85rem;
-    font-size: 0.8rem;
+  .scroll-spy-menu__item::after {
+    bottom: 4px;
+    /* Un poco más arriba en pantallas chicas */
   }
 }
